@@ -1,6 +1,6 @@
 title = "Fission: Functions as a Service on Kubernetes"
-baseURL = ""
-relativeURLs = true
+baseURL = "https://blog.fission.io"
+#relativeURLs = true
 languageCode = "en-us"
 theme = "ananke"
 
