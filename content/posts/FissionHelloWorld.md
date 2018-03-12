@@ -131,7 +131,7 @@ Finally, we can invoke our function, using this command:
 
 ## What's Next?
 
-Go ahead and try your hand at using Fission Functions for your own cool projects! Remember that you can use Fission with other languages. Try it out using NodeJS, Python, Ruby, or any of the other languages within our listed [enviroments](https://github.com/fission/fission/tree/master/environments)! Don't forget to tell us about what you made by tweeting us [@Fissionio](http://twitter.com/fissionio), and feel free to ask questions on our Slack http://fissionio.slack.com.
+Go ahead and try your hand at using Fission Functions for your own cool projects! Remember that you can use Fission with other languages. Try it out using NodeJS, Python, Ruby, or any of the other languages within our listed [environments](https://github.com/fission/fission/tree/master/environments)! Don't forget to tell us about what you made by tweeting us [@Fissionio](http://twitter.com/fissionio), and feel free to ask questions on our Slack http://fissionio.slack.com.
 
 
 
