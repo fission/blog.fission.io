@@ -1,15 +1,17 @@
 ---
-title: "Fission - Serverless Functions and Workflows with Kubernetes and NATS"
+title: "FaaS Function Composition with Fission Workflows and NATS"
 date: 2018-03-22T01:46:30-07:00
-draft: true
+draft: false
 ---
 
 
-[NATS](https://nats.io) is a lightweight, open source, high-performance, messaging system for cloud native applications, IOT messaging, and microservices architectures. The NATS messaging system implements a super scalable [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) (or pub/sub) distribution model. There are a few other open source technologies that adopt this model as well such as [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/), [Kafka](https://kafka.apache.org/), and [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/).
+
+[NATS](https://nats.io) is a lightweight, open source, high-performance, messaging system for cloud native applications, IOT messaging, and microservices architectures. The NATS messaging system implements a scalable [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) (or pub/sub) distribution model. There are a number of open source technologies like [Kafka](https://kafka.apache.org/), and several cloud technologies such as [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) and [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) that adopt this model as well.
 
 In light of NATS recently being [accepted into The Cloud Native Computing Foundation](http://www.eweek.com/cloud/nats-messaging-project-joins-cloud-native-computing-foundation) last week, we thought it’d be cool to share how Fission functions and workflows utilize this sleek messaging system on top of Kubernetes. 
 
 
+## Using NATS to invoke Fission Functions
 Fission integrates with the NATS Streaming message queue. Users can map a queue topic to a function using a Fission Message Queue Trigger. Fission then sets up a subscription for that topic, and invokes the function once for each event. The result of the function is then pushed to another topic, also specified by the trigger. This makes it easy to wire up functions in a reliable and asynchronous manner to systems that generate events (such as Minio, for example).
 
 
@@ -83,6 +85,8 @@ Fission Workflows improves on that by allowing you to specify a set of functions
 ---
 
 ## Learn More
+
+_Wanna learn more? [Catch our next talk on "Function Composition in a Serverless World" at KubeConEU 2018](http://sched.co/Dqvm)_
 
 **_Fission_**: [fission.io](http://fission.io) | [github](http://github.com/fission/fission) | [twitter](http://twitter.com/fissionio) | [slack](http://slack.fission.io)
 
