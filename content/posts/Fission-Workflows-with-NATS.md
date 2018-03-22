@@ -86,7 +86,7 @@ Fission Workflows improves on that by allowing you to specify a set of functions
 
 ## Learn More
 
-_Wanna learn more? [Catch our next talk on "Function Composition in a Serverless World" at KubeConEU 2018](http://sched.co/Dqvm)_
+_Wanna learn more? [Catch our next talk on "Function Composition in a Serverless World" at KubeConEU 2018!](http://sched.co/Dqvm)_
 
 **_Fission_**: [fission.io](http://fission.io) | [github](http://github.com/fission/fission) | [twitter](http://twitter.com/fissionio) | [slack](http://slack.fission.io)
 
