@@ -119,7 +119,7 @@ We’ll be using the Golang Hello World example from the fission github repo (wh
 
 Now let’s deploy our function using this command:
 
-	$ fission function create --name hello --env go --code /tmp/hello.go --entrypoint Handler
+	$ fission function create --name hello --env go --src /tmp/hello.go --entrypoint Handler
 
 
 Finally, we can invoke our function, using this command:
