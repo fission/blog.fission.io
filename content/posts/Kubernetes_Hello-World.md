@@ -314,11 +314,16 @@ _Change line 16 in helloworld.go to:_
 
 Now we want to build a new version of our Docker image:
 
-	docker build -t yourhubusername/hello_world:v2 .
+	docker build -t yourhubusername/hello-world:v2 .
+
+Go ahead and push the updated image to Docker Hub:
+
+    docker push yourhubusername/hello-world
 
 Update the image for the Deployment:
 
-	kubectl set image deployment/helloworld helloworld=yourhubusername/hello_world:v2
+	kubectl set image deployment/helloworld helloworld=yourhubusername/hello-world:v2
+
 
 Now we can check for our updated message:
 
