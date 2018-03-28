@@ -1,7 +1,7 @@
 ---
-title: "Fission Workflows: Part 1"
+title: "An Introduction to Fission Workflows: Part 1"
 date: 2018-03-27T04:25:55-07:00
-draft: true
+draft: false
 ---
 
 _This is the first of a 2-part introduction to Fission Workflows._
@@ -96,6 +96,14 @@ Fission: https://github.com/fission/fission
 Fission Slack: http://slack.fission.io/
 Fission Workflows: https://github.com/fission/fission-workflow
 
+
+**_Authors:_**
+
+* Soam Vasani **|** Senior Software Engineer, Platform9 Systems **|** [Tweet the Author](https://www.twitter.com/soamv)
+
+* Timirah James **|** Fission Developer Advocate, Platform9 Systems  **|**  [Tweet the Author](https://www.twitter.com/timirahj)
+
+* Erwin Van Eyk **|** Software Engineer Intern, Platform9 Systems **|** [Tweet the Author](https://www.twitter.com/erwinvaneyk)
 
 
 
