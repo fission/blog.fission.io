@@ -1,12 +1,12 @@
 ---
-title: "An Introduction to Fission Workflows: Part 1"
+title: "Getting Started: Composing Serverless Functions with Fission Workflows (Part 1)"
 date: 2018-03-27T04:25:55-07:00
 draft: false
 ---
 
 _This is the first of a 2-part introduction to Fission Workflows._
 
-## Open Source Serverless Workflows for Kubernetes
+
 Fission provides fast serverless functions on Kubernetes. While functions are great for specific pieces of business logic, any non-trivial application requires a composition of functions.
 
 There are many ways to compose functions. You can directly call functions from each other — but there are some disadvantages to this. For one, the structure of the application becomes hard to understand; dependencies are not obvious; essentially, every function becomes an API. Second, there’s no persistent state; if there’s a failure or exception and you want to retry, the whole function must run again.  
@@ -15,7 +15,7 @@ Alternatively, you can wire up a set of functions using message queues to send t
 
 
 ## Workflows
-A third way to compose functions is using workflows.Think of a flowchart: a sequence of tasks, decisions, loops and so on. A flowchart makes the structure of a complex task obvious. 
+A third way to compose Fission functions is using _**workflows**_. Think of a flowchart: a sequence of tasks, decisions, loops and so on. A flowchart makes the structure of a complex task obvious. 
 
 Workflows are like flowcharts for serverless functions, except they’re more powerful. You can compose together functions in sequence or in parallel, send the output of a function to the inputs of another, write if statements, loops, and even functions that operate on other functions.
 
@@ -23,9 +23,9 @@ Workflows are like flowcharts for serverless functions, except they’re more po
 
 Broadly we see a few areas where workflows are useful:
 
-- Devops automation use cases
-- Data processing use cases
-- Business process automation
+- **Devops automation use cases**
+- **Data processing use cases**
+- **Business process automation**
 
 
 ### Demos
@@ -38,8 +38,7 @@ Broadly we see a few areas where workflows are useful:
 ![slack-image](../../images/slack-msg-image.png)
 
 
-_You can find more cool demos/examples here:_
-https://github.com/fission/fission-workflows/tree/master/examples
+**_[Find more cool demos/examples of apps built using Fission Workflows here](https://github.com/fission/fission-workflows/tree/master/examples)_**.
 
 
 ---
@@ -61,7 +60,7 @@ Workflows themselves are Fission functions — this allows workflows to be t
 
 Workflows are specified in _**YAML**_. 
 
-_Below is an example of the specifications of a workflow, from the Slack Weather application._
+_Below is an example of the specifications of a workflow, from the Slack Weather application, in YAML._
 
 
 ![yaml-image-1](../../images/yaml-ex-1.png)
@@ -89,12 +88,12 @@ We went with something of a hybrid. Though the workflow definition is a static l
 We think this approach is the best of both worlds: we get the advantages of workflows-as-data, but with a lot more flexibility than simple static workflows.
 
 
-Stay tuned for Part 2 of this post, as we dive deeper into the potential of Fission Workflows, what implementation looks like, and how it makes serverless application development that much easier.
+Stay tuned for **Part 2** of this post, as we dive deeper into the potential of Fission Workflows, what implementation looks like, and how it makes serverless application development that much easier.
 
-In the meantime, feel free to join the Fission community below!
-Fission: https://github.com/fission/fission
-Fission Slack: http://slack.fission.io/
-Fission Workflows: https://github.com/fission/fission-workflow
+_In the meantime, feel free to [**join the Fission community**](https://fission.io/community/)!_
+
+
+---
 
 
 **_Authors:_**
@@ -104,39 +103,5 @@ Fission Workflows: https://github.com/fission/fission-workflow
 * Timirah James **|** Fission Developer Advocate, Platform9 Systems  **|**  [Tweet the Author](https://www.twitter.com/timirahj)
 
 * Erwin Van Eyk **|** Software Engineer Intern, Platform9 Systems **|** [Tweet the Author](https://www.twitter.com/erwinvaneyk)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
