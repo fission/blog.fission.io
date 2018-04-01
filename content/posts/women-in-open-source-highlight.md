@@ -200,7 +200,7 @@ Start with one simple Pull Request! It doesn't matter how big or small the fix i
 
 _**Name one thing you love about the Open Source community! :)**_
 
-I love how innovative and supportive the Open Source community is! Also, I think the Open Source community is definitely where the spirit of innovation shines the most!
+I love how innovative and supportive the Open Source community is! I think the Open Source community is definitely where the spirit of innovation shines the most!
 
 
 ---
