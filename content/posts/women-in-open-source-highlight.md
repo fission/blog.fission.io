@@ -1,5 +1,5 @@
 ---
-title: "Women in Open Source Highlight Series"
+title: "Women in Open Source: Highlight Series"
 date: 2018-03-31T15:04:18-07:00
 draft: false
 ---
@@ -7,7 +7,7 @@ draft: false
 
 As we all know, there the presence of active women in the Open Source community is scarce. Last year, [GitHub conducted an online survey](http://www.zdnet.com/article/github-open-source-is-dominated-by-men-who-just-cant-communicate/) in which they randomly selected 5,500 developers of open source projects, and found that only 3% of that population were female (crazy right?!?). The knowledge of that fact alone can be intimidating for other women to particpate in the open source community.
 
-So this year for Women's History Month, the Fission team decided to host the #WomenInOpenSourceHighlight series on social media, where we shined a light on amazing women in the Open Source field.  We hope that by highlighting these women and sharing their journies, that not only will they be further amplified, but that they can encourage more women to start their journies in contributing to open source as well and realize whether you've contributed 200 lines of code or 2 lines of code, no matter how big the project, remember that your contribution makes a difference!
+So this year for Women's History Month, the Fission team decided to host the _**#WomenInOpenSourceHighlight**_ series on social media, where we shined a light on amazing women in the Open Source field.  We hope that by highlighting these women and sharing their journies, that not only will they be further amplified, but that they can encourage more women to start their journies in contributing to open source as well and realize whether you've contributed 200 lines of code or 2 lines of code, no matter how big the project, remember that your contribution makes a difference!
 
 
 Check out their stories below!
