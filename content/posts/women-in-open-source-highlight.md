@@ -388,4 +388,5 @@ Maintainers who spend their spare minutes helping you help them with your contri
 _**Author:**_ Timirah James **|** Fission Developer Advocate, Platform9 Systems  **|**  [Tweet the Author](https://www.twitter.com/timirahj)
 
 
+**[Learn more & Join the Fission Community here!]**(https://fission.io/community/)
 
