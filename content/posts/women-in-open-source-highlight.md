@@ -200,7 +200,7 @@ Start with one simple Pull Request! It doesn't matter how big or small the fix i
 
 _**Name one thing you love about the Open Source community! :)**_
 
-I love how innovative and supportive the Open Source community is! Also, I think the Open Source community is definitely where the spirit of innovation shines the most!
+I love how innovative and supportive the Open Source community is! I think the Open Source community is definitely where the spirit of innovation shines the most!
 
 
 ---
@@ -293,22 +293,22 @@ Yeah, FOSS has its problems and there's always room for improvement, but the peo
 
 _**What encouraged you to get into Open Source?**_
 
-I got a chance to write a feature article on Richard Stallman when he visited my home state, Kerala, India in 2004. I was inspired by his words and the philosophy that he upholds. In Kerala, Govt schools and offices run free and open source software on all the computers. School has Linux-based curriculum, called IT@School. I also got a chance to develop documentation for the supplementary reader for IT@School curriculum in 2003. Later on I joined Novell and contributed to GNOME and Open SuSE documentation.
+I am from Kerala, a southern state in India. In Kerala, government schools and offices use free and open source software since the year 2003. Schools follow the Linux-based curriculum, called IT@School. While interning at a Kerala-based Publication House I got an opportunity to develop instructional material for the supplementary reader for the IT@School project. I've also had the chance to write an Interview article on Richard Stallman when he visited Kerala in 2004. I was blown away by his words and the philosophy that he upholds. A year later I landed my dream Open Source job at Novell and started contributing to the GNOME and Open SuSE documentation. There was no turning back after that.
 
 
 _**What tools/projects have you contributed to or created that you are most excited about? Why?**_
 
-Apache CloudStack, Kubernetes, GNOME, OpenSuSE - all of them. However I am more inclined towards CloudStack because I got an opportunity to build and run a community back in India. You can read about journey at http://yourstory.com/2014/07/techie-tuesdays-radhika-nair/
+Apache CloudStack, Kubernetes, GNOME, OpenSuSE - all of them. However, I am more inclined towards CloudStack because I did much more than writing documentation. I built a thriving CloudStack community back in India. You can read about my journey at http://yourstory.com/2014/07/techie-tuesdays-radhika-nair/
 
 
 _**Do you have any advice for other women who are curious about the Open Source realm, but have not yet crossed that bridge?**_
 
-Fall in love with the technology. Be open and ready to learn and share. Communities are open, supportive, and kind towards women. I received KubeCon+CloudNativeCon 2017 Scholarship and attended the most sought after conference of the year. I was selected as Influencer at CloudOpen conference 2014. 
+Fall in love with the technology. Be open. Be ready to learn and share. Communities are open, supportive, and kind. I received the KubeCon+CloudNativeCon 2017 Scholarship to attend the most sought-after conference of the year. I was selected as an Influencer at the CloudOpen conference in 2014.
 
 
 _**Name one thing you love about the Open Source community! :)**_
 
-Open, kind, supportive. Lots of opportunity to learn and progress in both professionally and personally.
+Open, kind, and supportive. You will find ample opportunities to learn and expand your horizon--both professionally and personally.
 
 
 ---
