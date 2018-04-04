@@ -22,7 +22,7 @@ Check out their stories below!
 
 **Twitter:** [@jlooper](https://twitter.com/jlooper)
 
-**Github:** [github.com/jlooper](github.com/jlooper)
+**Github:** [github.com/jlooper](https://github.com/jlooper)
 
 _**What encouraged you to get into Open Source?**_
 
@@ -50,7 +50,7 @@ The fast-moving innovation that takes place every day.
 
 **Twitter:** [@rosygpta](https://twitter.com/rosygupta)
 
-**Github:** [github.com/rosygupta](github.com/rosygupta)
+**Github:** [github.com/rosygupta](https://github.com/rosygupta)
 
 _**What encouraged you to get into Open Source?**_
 
@@ -83,7 +83,7 @@ Everyone supports each other, especially to the new-comers.
 
 **Twitter:** [@mary_grace](https://twitter.com/mary_grace)
 
-**Github:*** [github.com/mary-grace](github.coom/mary-grace)
+**Github:*** [github.com/mary-grace](https://github.coom/mary-grace)
 
 
 _**What encouraged you to get into Open Source?**_
@@ -117,7 +117,7 @@ Their passion, the pure enjoyment they get out of sharing their work, and the wa
 
 **Twitter:** [@theamycode](https://twitter.com/theamycode)
 
-**Github:** [github.com/amy](github.com/amy)
+**Github:** [github.com/amy](https://github.com/amy)
 
 
 _**What encouraged you to get into Open Source?**_
