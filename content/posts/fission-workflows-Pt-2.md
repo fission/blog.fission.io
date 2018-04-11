@@ -1,10 +1,10 @@
 ---
-title: "Fission Workflows Pt 2"
+title: "Getting Started: Composing Serverless Functions with Fission Workflows (Part 2)"
 date: 2018-04-05T14:15:37-07:00
 draft: true
 ---
 
-In [Part One](https://blog.fission.io/posts/fissionworkflows-pt-1/) of this series, we talked about the concepts around Fission Workflows, how to create them, as well as a few demos of use cases in which you might use them. 
+In **[Part One]**(https://blog.fission.io/posts/fissionworkflows-pt-1/) of this series, we talked about the concepts around Fission Workflows, how to create them, as well as a few demos of use cases in which you might use them. 
 
 So we’ve gone over what workflows are, along with when, and how to execute them. In this blog post we’ll dive deeper, breaking down each component that makes up the fabric of workflows, and what make workflows so efficient.
 
@@ -51,10 +51,8 @@ The workflow engine uses Fission as the underlying _‘function execution layer�
 ---
 
 
+# Walking Through the Lifecycle of a Workflow 
 
-## Lifecycle of a Workflow 
-
-[add sentance here]
 
 * The user defines a workflow definition in the YAML data format.
 
@@ -79,6 +77,10 @@ The workflow engine uses Fission as the underlying _‘function execution layer�
 * This process continues until all tasks have succeeded or an unhandled error has occurred. 
 
 * In case of a synchronous invocation, the resulting output of the workflow invocation is returned to the user.
+
+---
+
+# Performance 
 
 
 ## Why it’s fast
@@ -118,7 +120,7 @@ Also, the query language, a JavaScript interpreter, is like the internal functio
 
 ---
 
-## Related Work
+# Related Work
 
 Fission Workflows is the only open source serverless workflow framework on Kubernetes. However, the concept of workflows is not new at all, and has precedent in scientific data processing, data analytics pipelines, and infrastructure/devops automation. 
 
@@ -132,7 +134,7 @@ From the academic world, [Pegasus](https://pegasus.isi.edu/) and [Pywren](https:
 
 ## Roadmap
 
-
+_**Here are a few additional features that we're working on to enhance workflows!**_
 
 
 - **Programming Workflows:** A Python library that allows users to generate workflows by just writing code and feeding it to a parser.
@@ -141,16 +143,17 @@ From the academic world, [Pegasus](https://pegasus.isi.edu/) and [Pywren](https:
 
 
 
+To learn more about Fission Workflows and other function composition styles, you can check us out at [KubeConEU this year in Copenhagen](https://kccnceu18.sched.com/event/Dqvm/function-composition-in-a-serverless-world-erwin-van-eyk-timirah-james-platform9-intermediate-skill-level?iframe=no)! Come attend our talk **_"Function Composition in a Serverless World"_** and visit us at the **Platform9** booth! :)
+
+You can also see us at [OSCON](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) in Portland, OR!
+
+
+**_[Don't Forget to Join our Community!]_**(https://fission.io/community/)
 
 
 
 --- 
 
-### Join our community
-
-Fission: https://github.com/fission/fission
-Fission Slack: http://slack.fission.io/
-Fission Workflows: https://github.com/fission/fission-workflow
 
 
 **_Authors:_**
