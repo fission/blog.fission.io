@@ -18,7 +18,7 @@ Workflows is designed to be fault-tolerant, high performance, and easy to deploy
 
 
 
-![wf-image](../../images/fission-wf-chart3.png)
+![fission-serverless-workflows-chart](../../images/fission-wf-chart3.png)
 
 
 
