@@ -4,7 +4,7 @@ date: 2018-04-05T14:15:37-07:00
 draft: false
 ---
 
-In **[Part One]**(https://blog.fission.io/posts/fissionworkflows-pt-1/) of this series, we talked about the concepts around Fission Workflows, how to create them, as well as a few demos of use cases in which you might use them. 
+In **[Part One](https://blog.fission.io/posts/fissionworkflows-pt-1/)** of this series, we talked about the concepts around Fission Workflows, how to create them, as well as a few demos of use cases in which you might use them. 
 
 So we’ve gone over what workflows are, along with when, and how to execute them. In this blog post we’ll dive deeper, breaking down each component that makes up the fabric of workflows, and what make workflows so efficient.
 
@@ -148,7 +148,7 @@ To learn more about Fission Workflows and other function composition styles, you
 You can also see us at [Velocity](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) in in San Jose, CA!
 
 
-**_[Don't Forget to Join our Community!]_**(https://fission.io/community/)
+**_[Don't Forget to Join our Community!](https://fission.io/community/)_**
 
 
 
