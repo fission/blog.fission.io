@@ -147,7 +147,7 @@ _**Here are a few additional features that we're working on to enhance workflows
 
 To learn more about Fission Workflows and other function composition styles, you can check us out at [KubeConEU this year in Copenhagen, Denmark](https://kccnceu18.sched.com/event/Dqvm/function-composition-in-a-serverless-world-erwin-van-eyk-timirah-james-platform9-intermediate-skill-level?iframe=no)! Come attend our talk **_"Function Composition in a Serverless World"_** and visit us at the **Platform9** booth! :)
 
-You can also see us at [Velocity](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) in in San Jose, CA!
+You can also see us at [Velocity](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) in San Jose, CA!
 
 
 **_[Don't Forget to Join our Community!](https://fission.io/community/)_**
