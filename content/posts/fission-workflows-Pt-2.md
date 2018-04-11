@@ -1,7 +1,7 @@
 ---
 title: "Getting Started: Composing Serverless Functions with Fission Workflows (Part 2)"
 date: 2018-04-05T14:15:37-07:00
-draft: true
+draft: false
 ---
 
 In **[Part One]**(https://blog.fission.io/posts/fissionworkflows-pt-1/) of this series, we talked about the concepts around Fission Workflows, how to create them, as well as a few demos of use cases in which you might use them. 
