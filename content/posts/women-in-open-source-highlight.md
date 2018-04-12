@@ -348,7 +348,7 @@ Open to all, no restrictions be it qualifications, age or gender
 
 --- 
 
-![FloorD-image](../../images/FloorD.jpgg)
+![FloorD-image](../../images/FloorD.jpg)
 
 
 ## Floor Drees
