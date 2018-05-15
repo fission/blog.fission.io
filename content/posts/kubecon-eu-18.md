@@ -19,11 +19,11 @@ FaaS is FaaS of course is functions as a service and FaaS frameworks allow devel
 
 So there are a couple of benefits here: 
 
-* _It's super developer friendly and the way that it strips the obligation of having to manage or maintain servers_
+* **_It's super developer friendly and the way that it strips the obligation of having to manage or maintain servers_**
 
-* _It also has a pretty great billing model as you only pay for the resources that you actually consume_
+* **_It also has a pretty great billing model as you only pay for the resources that you actually consume_**
 
-* _When you're using FaaS frameworks scaling is simplified_
+* **_When you're using FaaS frameworks scaling is simplified_**
 
 
 # What is Function Composition?
@@ -51,22 +51,24 @@ In the next section, we’ll be going over how we can do just that using differe
 
 # Manual Compilation
 
-Probably the easiest way to combine functions is to just do it on a source code level. But when you do this using a FaaS framework, that FaaS framework won’t recognize those functions as separate tasks. Instead, they will be viewed as one big function. I'll going to point out why that might be a problem in a bit.
+Probably the easiest way to combine functions is to just do it on a source code level. But when you do this using a FaaS framework, that FaaS framework won’t recognize those functions as separate tasks. Instead, they will be viewed as one big function. I'm going to point out why that might be a problem in a bit.
 
 ![manual-image](../../images/manual-image.jpg)
 
-On the right, we have some pseudo code where we have our two functions (Function A + Function B). Then at the very bottom, we have a function which calls both Function A and Function B at once.
+On the right, we have some pseudo code where we have our two functions (**Function A + Function B**). Then at the very bottom, we have a function which calls both Function A and Function B at once.
 
 
 ### Pros 
 
-* Can be done at a source code level (you actually really don't need a FaaS framework to do this)
-* There's no serialization overhead
+* **_Can be done at a source code level (you actually really don't need a FaaS framework to do this)_**
+
+* **_There's no serialization overhead_**
 
 ### Cons 
 
-* The bigger the function the slower the load time may be
-* Can’t scale functions independently
+* **_The bigger the function the slower the load time may be_**
+
+* **_Can’t scale functions independently_**
 
 
 Now let’s break down that last con: the inability to be able to scale the functions independently. This con can be pretty wasteful and perhaps costly. 
@@ -212,12 +214,16 @@ Fission Workflows utilizes two main concepts:
 ![fission-wfs-image](../../images/fission-wfs.jpg)
 
 
-[Check out some example use cases using Fission Workflows here...](https://github.com/fission/fission-workflows/tree/master/examples)   **OR**   [Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](https://blog.fission.io/posts/fission-workflows-pt-1/)
+[Check out some example use cases using Fission Workflows here!](https://github.com/fission/fission-workflows/tree/master/examples)  
+
+ **OR**   
+
+ [Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](https://blog.fission.io/posts/fission-workflows-pt-1/)
 
 
 
 
-# So Which Approach Should YOU Use?..
+## So Which Approach Should YOU Use?..
 
 The simple answer... it depends! All of these serverless function composition styles are super diverse, and depending on the complexity of your applications and of your individual functions, you'll ultimately have to make the decision on what is worth the given risks and what is not. Most times it may even take multiple composition styles to get the job done just right to cater to your particular use case. 
 
@@ -227,11 +233,12 @@ The simple answer... it depends! All of these serverless function composition st
 
 ---
 
+
 **If you enjoyed this blog post, be sure to [catch our talk at Velocity next month in San Jose, CA!]**(https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) :)
 
-_And don't forget to tweet us!!_ **_[@Fissionio]_**(https://twitter.com/fissionio)
+_And don't forget to tweet us!!_ **_[@Fissionio](https://twitter.com/fissionio)_**
 
-**[Learn more & Join the Fission Community + Slack Channel here!]**(https://fission.io/community/)
+**[Learn more & Join the Fission Community + Slack Channel here!](https://fission.io/community/)**
 
 
 **_Authors:_**
