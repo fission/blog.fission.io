@@ -161,7 +161,7 @@ Another good thing is that all the functions are decoupled. They don't need to h
 
 ### Cons 
 
-Notice I kept emphasizing the word "coincidentally" here? That's because with this approach, it can literally become a web of implicit dependancies. 
+Notice I kept emphasizing the word _"coincidentally"_ here? That's because with this approach, it can literally become a web of implicit dependancies. 
 
 Imagine a system in production where you have tens, or hundreds, or even thousands of functions all having these implicit compositions in between them. The structure of these implicit compositions can become difficult to understand, and even dangerous to add or remove functions because they might be used by some another function somewhere else in the system. This can also make it super diffcult for function versioning as well.
 
