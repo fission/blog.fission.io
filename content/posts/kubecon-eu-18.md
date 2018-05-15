@@ -1,7 +1,7 @@
 ---
 title: "Function Composition in a Serverless World [Video]"
 date: 2018-05-14T09:16:30-07:00
-draft: true
+draft: false
 ---
 
 
