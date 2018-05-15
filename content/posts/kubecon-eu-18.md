@@ -234,7 +234,7 @@ The simple answer... it depends! All of these serverless function composition st
 ---
 
 
-**If you enjoyed this blog post, be sure to [catch our talk at Velocity next month in San Jose, CA!]**(https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827) :)
+**If you enjoyed this blog post, be sure to [catch our talk at Velocity next month in San Jose, CA!](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827)** :)
 
 _And don't forget to tweet us!!_ **_[@Fissionio](https://twitter.com/fissionio)_**
 
