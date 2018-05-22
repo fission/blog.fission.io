@@ -59,7 +59,7 @@ Make sure Helm is initialized by running:
 
 Now let's install Fission using the following command:
 
-	$ helm install --namespace fission https://github.com/fission/fission/releases/download/0.6.0/fission-all-0.6.0.tgz
+	$ helm install --namespace fission https://github.com/fission/fission/releases/download/0.6.0/fission-all-0.7.2.tgz
 
 
 ### Install the Fission CLI
@@ -69,13 +69,13 @@ Next we'll need to install the command-line tool for Fission.
 If you’re running **OS X**, you can install the Fission CLI by running the following command:				
 					
 	$ curl -Lo fission
-	https://github.com/fission/fission/releases/download/0.6.0/fission-cli-osx
+	https://github.com/fission/fission/releases/download/0.7.2/fission-cli-osx
 	&& chmod +x fission && sudo mv fission /usr/local/bin/
 
 
 **For Linux:**
 
-	$ curl -Lo fission https://github.com/fission/fission/releases/download/0.6.0/fission-cli-linux && chmod +x fission && sudo mv fission /usr/local/bin/
+	$ curl -Lo fission https://github.com/fission/fission/releases/download/0.7.2/fission-cli-linux && chmod +x fission && sudo mv fission /usr/local/bin/
 
 
 **For Windows, download the executable using [this link](https://github.com/fission/fission/releases/download/0.6.0/fission-cli-windows.exe).**
