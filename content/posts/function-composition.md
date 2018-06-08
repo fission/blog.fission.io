@@ -1,7 +1,7 @@
 ---
 title: "Function Composition: What It Means, and Why You Should Care"
 date: 2018-06-08T11:39:15-07:00
-draft: true
+draft: false
 ---
 
 FaaS Functions give you the ability to quickly deploy services made of small functionality.  But any more complex use case requires multiple functions.  What are the different approaches to this?  What are the parameters on the basis of which we should compare these approaches?  
