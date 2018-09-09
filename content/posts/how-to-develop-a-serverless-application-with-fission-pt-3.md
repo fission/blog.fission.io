@@ -5,7 +5,7 @@ date = "2018-09-08T13:27:34+08:00"
 
 # Introduction
 
-At [Part 2], we knew what's real payload was passed to function and how to create a serverless guesbook. 
+At [Part 2](/posts/how-to-develop-a-serverless-application-with-fission-pt-2), we knew what's real payload was passed to function and how to create a serverless guesbook. 
 In the last post, we will go through the final bank sample and know how to deploy a application to different fission clusters.
 
 # A Serverless Bank Application in Golang (Sample)
