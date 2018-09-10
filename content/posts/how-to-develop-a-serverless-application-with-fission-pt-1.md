@@ -5,7 +5,11 @@ date = "2018-09-06T15:48:12+08:00"
 
 # Introduction
 
-When users try to develop serverless applications, they often choose some existing and mature solutions like [AWS Lambda](https://aws.amazon.com/lambda/) or [Google Cloud Functions](https://cloud.google.com/functions/). However, users may encounter following problems after application development:
+When users try to develop serverless applications, they often choose
+to start with Serverless services offered on public clouds, like [AWS
+Lambda](https://aws.amazon.com/lambda/) or [Google Cloud
+Functions](https://cloud.google.com/functions/). However, users may
+encounter following problems after application development:
 
 1. Simulating the same environment on local machines is difficult
 2. Vendor lock-in prevents moving applications from one cloud provider to another
