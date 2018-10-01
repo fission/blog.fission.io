@@ -214,7 +214,7 @@ Then, you can access the function with url path defined.
 $ curl http://${FISSION_ROUTER}/my-first-function
 ```
 
-**NOTE**: For how to set up `$FISSION_ROUTER`, please visit https://docs.fission.io/latest/fission-env/fission_router/
+**NOTE**: For how to set up `$FISSION_ROUTER`, please visit https://docs.fission.io/latest/installation/env_vars/
 
 ## Check function execution logs
 
