@@ -1,7 +1,7 @@
 ---
 title: "Live-Reload in Fission: Instant feedback on your Serverless Functions"
 date: 2018-10-06T01:46:30-07:00
-draft: true
+draft: false
 ---
 
 Fast feedback loops are an important devops principle: the sooner you

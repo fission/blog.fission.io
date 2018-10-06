@@ -1,7 +1,7 @@
 ---
 title: "Automated Canary Deployments in Fission"
 date: 2018-10-06T01:46:30-07:00
-draft: true
+draft: false
 ---
 
 Canary Deployments are a time-tested deployment strategy.  The

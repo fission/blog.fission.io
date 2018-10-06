@@ -1,7 +1,7 @@
 ---
 title: "Record-replay in Fission"
 date: 2018-10-06T01:46:30-07:00
-draft: true
+draft: false
 ---
 
 Functions in a Fission are triggered by events.  We've recently added
