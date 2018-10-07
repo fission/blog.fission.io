@@ -5,15 +5,6 @@ draft: false
 ---
 intro blurb
 
-## Using Fission's Prometheus Metrics
-
-Fission exposes metrics from its components that Prometheus then
-scrapes.  Prometheus offers a web-based querying UI that you can use
-to query and graph Fission metrics.
-
-Below we'll show a few sample queries for common things you may want
-to monitor from your deployment.
-
 ### Prometheus Introduction
 
 Prometheus is a popular tool for aggregating, storing, and querying
@@ -27,6 +18,16 @@ labels.
 
 Prometheus operates on a "pull" model -- Fission exposes a set of
 metrics, and Prometheus samples these metrics every minute or so.
+
+## Using Fission's Prometheus Metrics
+
+Fission exposes metrics from its components that Prometheus then
+scrapes.  Prometheus offers a web-based querying UI that you can use
+to query and graph Fission metrics.
+
+Below we'll show a few sample queries for common things you may want
+to monitor from your deployment.  First let's make sure your
+Prometheus is up and running, and that you can access it.
 
 ### Setting up Prometheus
 
