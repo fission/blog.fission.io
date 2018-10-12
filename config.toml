@@ -1,4 +1,4 @@
-title = "Fission: Functions as a Service on Kubernetes"
+title = "Fission: An open source, Kubernetes-native Serverless Framework"
 baseURL = "https://blog.fission.io"
 #relativeURLs = true
 languageCode = "en-us"
