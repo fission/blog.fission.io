@@ -9,6 +9,7 @@ find a bug, the cheaper it is to fix it.
 
 While coding, you're typically going through a cycle -- write code,
 build, deploy into a test environment, run some test, fix, repeat.
+
 The build and deploy parts of this cycle are unproductive time for the
 developer.  Once these steps are slower than a few minutes, you'll end
 up context switching to another task; and that means if you discover a
