@@ -1,6 +1,7 @@
 ---
 title: "New in Fission: Live-Reload, Record-Replay, Canary Deployments, Prometheus integration"
-date: 2018-10-16T01:46:30-07:00
+date: 2018-10-16T01:04:00-07:00
+publishDate: 2018-10-15T01:04:00-07:00
 ---
 
 Today we're really excited to launch a set of new features for
