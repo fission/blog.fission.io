@@ -35,7 +35,9 @@ in Fission.
 
 ## Using Automated Canary Deployments in Fission
 
-Automated Canaries are supported from Fission version 0.11.
+Automated Canaries are supported from Fission version 0.11.  For the
+next section we'll assume you're already set up with this version; if
+not, checkout the [install guide](https://docs.fission.io/latest/installation/).
 
 For this tutorial, we'll start with two versions of a function
 deployed on a cluster, and show how automated canary deployments
@@ -44,8 +46,8 @@ incrementally transfer load from one version to another.
 First, download a couple of trivial sample functions:
 
 ```
-$ curl
-$ curl
+$ curl -LO https://raw.githubusercontent.com/fission/fission/master/demos/canary-successful-scenario/func-v1.js
+$ curl -LO https://raw.githubusercontent.com/fission/fission/master/demos/canary-successful-scenario/func-v2.js
 ```
 
 Next, create the environment and functions on your Fission cluster:
@@ -97,11 +99,30 @@ incrementing it to significant percentages.
 With Prometheus, you can view the traffic to the old function drop as
 the traffic to the new version rises:
 
-[prometheus graph screenshot]
+![prometheus graph screenshot](/images/prometheus-canary-screenshot.png)
 
 ## An overview of how Automated Canary Deployments work
 
-[use the diagram from Smruthi's slides]
+The user deploys two functions into Fission, and configures a trigger
+to split traffic between them.  The Fission router uses this traffic
+split configuration to send an appropriate fraction of traffic to each
+version of the function.  A common traffic split would be something
+like 90% to the old stable version and 10% to the new version.
+
+Fission's Prometheus integration means that the Fission Router reports
+error rate metrics for all functions.  Prometheus scrames these
+metrics and stores them.
+
+The CanaryController ties everything together.  At each interval, it
+samples the error rate metrics from Prometheus, and makes a decision
+whether to roll forward or roll back.  If it decides to roll forward,
+it modifies the traffic split fraction in the Trigger specification to
+increase the traffic to the new version, and the process repeats at
+the next interval.  If at any point a failure threshold is reached,
+the controller immediately sets the new version's traffic fraction to
+zero, and declares the canary status to have failed.
+
+![canary working](/images/canary-deployments.jpg)
 
 ## Conclusion
 
