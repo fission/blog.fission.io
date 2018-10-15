@@ -1,19 +1,21 @@
 ---
 title: "Record-replay in Fission"
-date: 2018-10-06T01:46:30-07:00
+date: 2018-10-16T01:01:00-07:00
 draft: false
 ---
 
-Fission Functions are triggered by events.  We've recently added a new
-feature that allows you to _record_ these events into a database,
-examine these recordings, and replay them.
+Fission Functions are triggered by events. We’ve recently added a new
+feature that allows you to record these events into a database,
+examine these recordings, and replay them for testing and
+troubleshooting.
 
 Functions are often part of a larger, more complex system, that can
 take a while to test.  Sometimes, tests might not be fully automated
 and require some human interaction.  In both cases, you can record the
 events that trigger the function and simply use the same events to
-re-test the function.  The recorded events can be replayed on different
-versions of a function, essentially functioning as an automated test.
+re-test the function.  The recorded events can be replayed on
+different versions of a function, essentially functioning as an
+automated test.
 
 Recording can also useful in production -- for example, you can enable
 recording for a subset of function invocations that error out, and use
@@ -31,7 +33,7 @@ through using record replay on a simple function in Python.
 First, let's download a sample function:
 
 ```
-$ curl -LO https://xxx/hi.py
+$ curl -LO https:// /hi.py
 
 # This function is a hello world in Python.
 $ cat hi.py
@@ -97,25 +99,7 @@ The Fission installation includes a Redis deployment for
 record-replay.  (You can also switch this off and install without
 Redis if you're not planning to use record-replay.)
 
-pictures:
-
-without recording:
-
-```
-request -> fission router -> function
-```
-
-with recording:
-```
-request -> fission router -> function
-              -> redis
-```
-
-replay:
-```
-replay request -> fission replay api -> router -> function
-                     <-> redis
-```
+[image]
 
 ## Conclusion
 

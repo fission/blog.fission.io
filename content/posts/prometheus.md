@@ -1,14 +1,36 @@
 ---
 title: "Using Fission's Prometheus Metrics"
-date: 2018-10-06T01:46:30-07:00
+date: 2018-10-16T01:03:00-07:00
 draft: false
 ---
-intro blurb
+
+You can’t improve what you can’t measure.  Visibility
+into metrics is a foundational requirement for much of
+software operations.
+
+Serverless metrics collection can be tricky. For one,
+there is no "uptime" to measure.  Secondly, with a
+“pull model” like Prometheus, there is no long-lived
+service to scrape metrics from.  By the time Prometheus
+scrapes your function’s running instance, it may
+already be terminated, since functions are short-lived.
+Though Prometheus has a push gateway, it doesn’t
+maintain history, which makes it hard to track metrics
+for multiple concurrent function instances.
+
+Fission lets you avoid this complexity -- Fission
+itself exposes Prometheus metrics for all functions, so
+you don’t have to build Prometheus integration into any
+of your application code.  You get metrics simply by
+deploying functions into Fission.
+
 
 ### Prometheus Introduction
 
-Prometheus is a popular tool for aggregating, storing, and querying
-metrics.  There are a few crucial concepts to learn with Prometheus.
+Prometheus is a popular tool for aggregating, storing,
+and querying metrics.  There are a [few crucial
+concepts](https://prometheus.io/docs/concepts/data_model/)
+to learn with Prometheus.
 
 The Prometheus [Data
 model](https://prometheus.io/docs/concepts/data_model/) is built
@@ -16,8 +38,10 @@ around time series.  Each time series has a name and a set of
 key-value pairs (called labels).  You can query time series by these
 labels.
 
-Prometheus operates on a "pull" model -- Fission exposes a set of
-metrics, and Prometheus samples these metrics every minute or so.
+Prometheus operates on a "pull" model -- Fission
+exposes a set of metrics, and Prometheus samples these
+metrics at regular intervals (once a minute by
+default).
 
 ## Using Fission's Prometheus Metrics
 
@@ -85,13 +109,20 @@ sum(fission_function_calls_total{name="hello"}) without (cached,job,instance,cod
 This somewhat long query sums over all of the labels that we don't
 want to distinguish between.
 
-Note that this metric is a counter.  It's the total number of function
-calls, ever.  That means it only ever goes up, never down.  To find
-the rate of function calls, you can use the `rate` function:
+Note that this metric is a counter.  It's the total
+number of function calls, cumulative since the
+beginning of this setup.  That means it only ever goes
+up, never down.  To find the rate of function calls
+instead, you can use the `rate` function:
 
 ```
 rate(fission_function_calls_total{name="func-v1"}[5m]) 
 ```
+
+This gives you the number of function calls per second
+for a function, calculated over a 5 minute sliding
+window.  [Read more about rate calculation in the
+Prometheus docs.](https://prometheus.io/docs/prometheus/latest/querying/functions/#rate())
 
 ### Function success/error rate
 
@@ -136,10 +167,11 @@ documentation](https://prometheus.io/docs/alerting/alertmanager/).
 
 ## Dashboards
 
-You can use Grafana or other tools for creating dashboards from
-Prometheus data.  Install Grafana on your cluster, and follow
-instructions to add a Prometheus data source.  You can then add graphs
-based on Prometheus queries.
+You can use Grafana or other tools for creating
+dashboards from Prometheus data.  Install Grafana on
+your cluster, and [follow instructions](https://prometheus.io/docs/visualization/grafana/)
+to add a Prometheus data source.  You can then add
+graphs based on Prometheus queries.
 
 ## Conclusion
 
@@ -150,5 +182,5 @@ service, you can also set up alerting for cases where you need it.
 
 Check out the [Fission installation guide](https://docs.fission.io/installation/) to get started with
 Fission.  Join us on the [Fission Slack](http://slack.fission.io) to
-chat, or follow us on Twitter at @fissionio.
+chat, or follow us on Twitter at [@fissionio](https://twitter.com/fissionio).
 

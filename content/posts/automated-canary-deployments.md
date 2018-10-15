@@ -1,32 +1,40 @@
 ---
 title: "Automated Canary Deployments in Fission"
-date: 2018-10-06T01:46:30-07:00
+date: 2018-10-16T01:02:00-07:00
 draft: false
 ---
 
-Canary Deployments are a time-tested deployment strategy.  The
-fundamental idea is that deploying software into a production cluster
-is different from _releasing it to its users_.  With canary
-deployments, you deploy both old and new versions into a production
-environment, but send only a small percentage of traffic to the newer
-version.  That way, if the new version fails, only a few users are
-affected rather than the application's entire user base.  If the newer
-version works well, the traffic proportion being sent to it is
-increased further.
+Canary Deployments are a time-tested deployment strategy to reduce
+risk. The fundamental idea is that deploying software into a
+production cluster is different from releasing it to its users. With
+canary deployments, you deploy both old and new versions into a
+production environment, but send only a small percentage of traffic to
+the newer version. That way, if the new version fails, only a few
+users are affected rather than the application’s entire user base. If
+the newer version works well, the traffic proportion being sent to it
+is increased incrementally until the new version has been rolled out
+to all live traffic.
 
 With _Automated Canary Deployments_, the feedback loop is automated --
 success causes the new version's proportion of traffic to be
-increased, and failue causes the new version's traffic proportion to
-be rolled back to zero.
+increased, and failure causes the new version's traffic proportion to
+be rolled back to zero.  This saves ops teams from having to either
+manually manage canary deployments, or build automation to do so
+themselves.
 
-Fission features Automated Canary Deployments for Functions.  Below,
-we'll go over a quick tutorial on using this feature in Fission.
+Fission is the first open source serverless function framework to have
+built-in, easy-to-configure Automated Canary Deployments.
 
+Users can configure the percentage of traffic that will receive the
+new version of the function, the error rate that will constitute as
+failure, and the release rate at which to roll out the new version.
+
+Let’s go over a quick tutorial on using Automated Canary Deployments
+in Fission.
 
 ## Using Automated Canary Deployments in Fission
 
-Automated Canaries are easy to use in Fission.  You'll need Fission
-0.11 or newer.
+Automated Canaries are supported from Fission version 0.11.
 
 For this tutorial, we'll start with two versions of a function
 deployed on a cluster, and show how automated canary deployments

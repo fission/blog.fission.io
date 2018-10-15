@@ -1,14 +1,13 @@
 ---
-title: "New in Fission: live reload, record-replay, canaries, Prometheus"
-date: 2018-10-11T01:46:30-07:00
-draft: false
+title: "New in Fission: Live-Reload, Record-Replay, Canary Deployments, Prometheus integration"
+date: 2018-10-16T01:46:30-07:00
 ---
 
 Today we're really excited to launch a set of new features for
-[Fission](http://fission.io), our popular open source
-Kubernetes-native serverless framework.  These features are all
-designed to help you improve the quality and reliability of your
-serverless applications on Kubernetes.
+[Fission](http://fission.io), our open source Kubernetes-native
+serverless framework.  These features are all designed to help you
+improve the quality and reliability of your serverless applications on
+Kubernetes.
 
 Serverless architectures have obvious productivity advantages.  You
 can get your apps up and running quickly, reducing the total lead time
