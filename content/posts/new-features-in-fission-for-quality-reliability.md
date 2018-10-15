@@ -149,7 +149,7 @@ Fission](https://docs.fission.io/latest/concepts/executor)
 
 ## Enterprises love Fission
 
-<img src="/images/snapfish-logo.png" alt="Snapfish logo" width="300px">
+<img src="/images/snapfish-logo.png" alt="Snapfish logo" width="300px" style="width:300px; float:left; margin-right: 3rem;">
 
 Headquartered in San Francisco, CA., Snapfish is the leader in online
 photo printing services. Founded in 1999, it provides high-quality
