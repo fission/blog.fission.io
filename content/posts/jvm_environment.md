@@ -126,10 +126,10 @@ Note, you can also use the Fission builder for building the JAR file, which come
 
 ### Deploying the Function
 
-First you will need to **create an environment**. The `extract` flag is important for Java-based applications that are packaged as JAR file. This flag will ensure that the fetcher won't extract the JAR file into a directory. Currently, the JVM environment supports version 2 and above, so we specify the environment version as 2.
+First you will need to **create an environment**. The `keeparchive` flag is important for Java-based applications that are packaged as JAR file. This flag will ensure that the fetcher won't extract the JAR file into a directory. Currently, the JVM environment supports version 2 and above, so we specify the environment version as 2.
 
 ```
-$ fission env create --name jvm --image fission/jvm-env --version 2 --extract=false
+$ fission env create --name jvm --image fission/jvm-env --version 2 --keeparchive
 ```
 
 When creating the function we provide the JAR file we built and the environment. The **entrypoint** signifies the fully qualified name of the class which implements the Fission's `Function` interface. 
