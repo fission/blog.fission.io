@@ -12,12 +12,11 @@ cd to this directory, and create a new page with `hugo new
 posts/something.md`.
 
 Write your post in that new file. You can live preview with `hugo
-serve -D` from the blog-src directory.
+serve -D` from the root directory.
 
 To publish:
  1. Set "draft" to "false" on top the new content file (or just delete
     the line that says "draft: true").
- 2. Run `hugo` (no arguments) from this dir.
  3. `git add`, `git commit` and `git push` the new content. A few
     minutes after the git push, the new content will show up at
     [fission.io/blog](http://fission.io/blog).
