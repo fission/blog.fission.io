@@ -7,18 +7,19 @@ author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
 
 # Introduction
 
-As the number of functions and their usage grows, it is crucial to monitor and manage them effectively. Fission already has [support for logs](https://docs.fission.io/usage/functions/#test-and-debug-function) and [monitoring via Prometheus](https://blog.fission.io/posts/prometheus/) and provides a great way to measure and track your functions automatically. 
+As the number of functions and their usage grows, it is crucial to monitor and manage them effectively. Fission already [supports logs on CLI](https://docs.fission.io/usage/functions/#test-and-debug-function) as well integration with external systems using Fluentd. Fission also has [monitoring enabled using Prometheus](https://blog.fission.io/posts/prometheus/) and provides a great way to measure and track your functions automatically. 
 
-Serverless functions can be part of larger distributed system. For example, in the case of serverless applications that become more complex - spanning multiple functions, or in Microservices where functions are triggered between different services that talk to each other to process a single request or perform a business function.
+Serverless functions can be part of a larger distributed system. For example, in the case of serverless applications that become more complex - spanning multiple functions, or in Microservices where functions are triggered between different services that talk to each other to process a single request or perform a business function.
 
 To ensure smooth operations of distributed systems you need to trace each request across multiple functions and invocations. This is critical so that you have a thorough understanding of the system’s behavior and can track performance across all its components. 
 
 Recently, Fission added support for __OpenTracing__ with release 1.0.0 and this makes monitoring and tracing functions at scale easy. In this post, we will set up OpenTracing along with Fission and then test out a few simple functions to validate.
 
-__SHOUTOUT__: Thanks to one of our awesome contributors Adam Bouhenguel (https://github.com/ajbouh) for incorporating the __OpenTracing__ change in Fission!
+__SHOUTOUT__: Thanks to one of our awesome contributors [Adam Bouhenguel](https://github.com/ajbouh) for incorporating the __OpenTracing__ change in Fission!
 
 ## OpenTracing in Fission
-Fission uses the [OpenCensus project](https://opencensus.io) for enabling tracing.his enables a user to use any of the [backends supported by OpenCensus](https://opencensus.io/exporters/). Currently, the following backends are supported by OpenCensus and can be used as backends for Fission tracing
+
+Fission uses the [OpenCensus project](https://opencensus.io) for enabling tracing. This enables a user to use any of the [backends supported by OpenCensus](https://opencensus.io/exporters/). Currently, the following backends are supported by OpenCensus and can be used as backends for Fission tracing
 
 - AWS X-Ray
 - Azure Monitor
@@ -29,13 +30,14 @@ Fission uses the [OpenCensus project](https://opencensus.io) for enabling tracin
 - Zipkin
 
 # Tutorial
-The rest of this post will walk through a step by step guide for setting up OpenCensus and Fission together.
+
+The rest of this post will walk through a step by step guide for setting up Jaeger as opentracing backend and Fission together.
 
 
 ## Setup OpenTracing
-For the purpose of this tutorial, we will set up OpenTracing with the __Jaeger backend__  - with a simple all in one topology (https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one). 
+For the purpose of this tutorial, we will set up OpenTracing with the __Jaeger backend__  - with a simple [all in one topology](https://www.jaegertracing.io/docs/1.8/getting-started/#all-in-one). 
 
-For your own production environments, you can either set up Jaeger with different configuration outlined in their setup guide or use a different backend supported by OpenTracing.
+For your own production environments, you can either set up Jaeger with different configuration outlined in their setup guide or use a different backend supported by OpenCensus.
 
 
 After setting up an all in one Jaeger you will see __one deployment__ and __four services__ including one for Jaeger UI which has a LoadBalancer for accessing it outside of the cluster.
@@ -111,7 +113,7 @@ We can further drill down into the traces and spans for individual components an
 
 ### Controlling the Sampling rate
 
-In a production environment, you may not want to trace all the requests but rather only trace a  sample a subset of requests to reduce the amount of data that would need to be stored and processed. This can be controlled with the  “sampling rate” in Jaeger - which is a number between 0-1 indicating the percentage of total requests to be sampled for tracing. You can use the variable in Helm charts to control the sampling rate (Or with TRACING_SAMPLING_RATE variable if you are using plain YAMLs)
+In a production environment, you may not want to trace all the requests but rather only trace a  sample a subset of requests to reduce the amount of data that would need to be stored and processed. This can be controlled with the  __“sampling rate”__ in Jaeger - which is a number between 0-1 indicating the percentage of total requests to be sampled for tracing. You can use the variable in Helm charts to control the sampling rate (Or with TRACING_SAMPLING_RATE variable if you are using plain YAMLs)
 
 
 ```
