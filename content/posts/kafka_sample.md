@@ -63,4 +63,4 @@ The demo and setup instructions are at https://github.com/fission/fission-kafka-
 
 **_Author:_**
 
-* [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [Infracloud Technologies](http://infracloud.io/)
+* [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [InfraCloud Technologies](http://infracloud.io/)
