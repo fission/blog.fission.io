@@ -14,7 +14,7 @@ There are many Actions available on the [Github marketplace](https://github.com/
 
 # Prerequisites
 
-You will need a Kubernetes cluster with Fission installed. Please follow the [instructions here](https://docs.fission.io/installation/) for installing Fission in your Kubernetes cluster. Then, verify that the fission cli is working by using the fission --version command.
+You will need a Kubernetes cluster with Fission installed. Please follow the [instructions here](https://docs.fission.io/installation/) for installing Fission in your Kubernetes cluster. Then, verify that the fission cli is working by using the `fission --version` command.
 
 # Local Development
 
@@ -74,6 +74,7 @@ action "FissionCD" {
 Push the code to a repository with the workflow definition. Assuming you have Git Hub Actions enabled in your repo, you will see an Action tab. You will notice that the workflow is marked as invalid and has errors. This is because it does not yet have values for the secrets.
 
 
+
 ![Workflow Error](../../images/githubaction/github_workflow_error.png)
 
 Edit the workflow and enter the values of the secrets required to execute the workflow. 
@@ -112,6 +113,8 @@ Status: Downloaded newer image for vishalbiyani/fission-action:7
 
 ### SUCCEEDED FissionCD 15:17:32Z (41.909s)
 ```
+
+You can find the code used for the demo in [this GitHub repository](https://github.com/fission/action-demo) and can checkout logs for past [executions here](https://github.com/fission/action-demo/actions).
 
 
 # There is more!
