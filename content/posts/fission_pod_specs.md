@@ -1,25 +1,26 @@
 ---
-title: "Tolerations, Init containers and Security in Fission"
-date: 2019-03-04T16:41:33+05:30
+title: "Functions On Steroids With PodSpec"
+date: 2019-05-20T13:41:33+05:30
 draft: false
 author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
 ---
 
 # Introduction
 
-Fission now supports "podspec" in addition to earlier supported "container spec" which enable a Fission function user to extend the capabilities of the function.
+There are features which enable a specific new functionality and then there are features which enable a whole new class of functionality in a product. I am excited to share that the PodSpec is now available in Fission. Fission functions can be extended to do many things with PodSpec such as tolerations, volumes, security context to name a few.
+
+Fission had support for "container specs" - which allowed you to add environment variables etc. to functions but with PodSpec - a whole bunch of new possibilities are unlocked. While container spec exists for backward compatibility, we recommend using PodSpec for extending your Fission functions. In this tutorial we will walk through various use cases and working examples with PodSpec.
 
 
+## Tolerations on functions
 
-## Tolerations
-
-Taint two nodes with "reservation=fission" and two nodes with "reservation=microservices" as shown below:
+Taints and tolerations are mechanism to influence scheduling of pods in Kubernetes. There are use cases where you want to schedule specific pods on machines with certain hardware or specific capabilities such as CPU intensive instances. The basic mechanism works by applying taints on nodes of cluster and tolerations on pods. The pods with tolerations matching a certain taint can get scheduled on those nodes. Now you can specify tolerations on functions in the function specification. Let's start with tainting two nodes with "reservation=fission" and two nodes with "reservation=microservices" as shown below. The intent is that two nodes are optimized for functions and other two nodes in cluster are better optimized for long running microservices. We want to schedule functions on nodes with taints meant for functions.
 
 ```
 $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vishal-fission-dev-default-pool-87c8b616-5q2c reservation=fission:NoSchedule
 
 node "gke-vishal-fission-dev-default-pool-87c8b616-549c" tainted
-node "gke-vishal-fission-dev-default-pool-87c8b616-5q2c" tainted
+node "gke-vishal-fission-dev-default-pool-87c8b6aCloud16-5q2c" tainted
 
 $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-pg05 gke-vishal-fission-dev-default-pool-87c8b616-t5q1 reservation=microservices:NoSchedule
 
@@ -27,9 +28,14 @@ node "gke-vishal-fission-dev-default-pool-87c8b616-pg05" tainted
 node "gke-vishal-fission-dev-default-pool-87c8b616-t5q1" tainted
 ```
 
-In the fission env spec, let's add spec and toleration for "reservation=fission"
+In the fission env spec, let's add PodSpec and toleration for "reservation=fission"
 
 ```
+  runtime:
+    functionendpointport: 0
+    image: fission/node-env
+    loadendpointpath: ""
+    loadendpointport: 0
     podspec:
       tolerations:
       - key: "reservation"
@@ -50,13 +56,51 @@ poolmgr-python-default-okhvkdsv-57b866b774-pmtzv     2/2       Running   0      
 
 ```
 
-Let's remove taint from all nodes:
+Let's remove taint from all nodes so we are back to original clean state:
 
 ```
 $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vishal-fission-dev-default-pool-87c8b616-5q2c gke-vishal-fission-dev-default-pool-87c8b616-pg05 gke-vishal-fission-dev-default-pool-87c8b616-t5q1 reservation:NoSchedule-
 ```
 
-## Volumes with InitContainers
+## Functions with volumes
+
+Functions are great for stateless things but there use cases where functions want to deal with data and it is best attached as volume. For example functions used in data pipelines would benefit a lot from volumes being attached to functions. With PodSpec now you can attach a volume to a function. You have to define a volume and then mount it on specific container. In following example we create a simple volume with Kubernetes downward API which dumps information of labels in a file. The volume is then mounted on the function container at `/etc/funcdata`
+
+
+```
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: nodep
+  namespace: default
+spec:
+  TerminationGracePeriod: 360
+  ...
+  <SOME CONTENT TRUNCATED>
+  ...
+  podspec:
+      # A container which will be merged with for pool manager
+      Containers:
+      - name: nodep
+        image: fission/node-env
+        volumeMounts:
+          - name: funcvol
+            mountPath: /etc/funcdata
+            readOnly: true
+      volumes:
+        - name: funcvol
+          downwardAPI:
+            items:
+              - path: "labels"
+                fieldRef:
+                  fieldPath: metadata.labels
+  ```
+
+
+## InitContainers with Volumes!
+
+Functions also could benefit from a initialization process before actually executing the functions. The initialization could allow you to fetch data from a remote bucket for example before actually starting the processing. PodSpec allow you to define init containers and also use volumes like we did in previous section.
 
 ```
     podspec:
@@ -77,6 +121,7 @@ $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vish
                   fieldPath: metadata.labels
 ```
 
+We can see that the init container is run first before the actual function container is run:
 
 ```
 $ kgpo $ff
@@ -86,6 +131,7 @@ poolmgr-python-default-9eik2gxd-6fdc8d9696-lpmgl   0/2       PodInitializing   0
 poolmgr-python-default-9eik2gxd-6fdc8d9696-tkmdc   0/2       PodInitializing   0          10s
 ```
 
+And the init container here is simply printing the file which was mounted and we can verify the same by looking at logs of the init container:
 
 ```
 $ k logs $ff poolmgr-python-default-9eik2gxd-6fdc8d9696-lpmgl -c init-py
@@ -99,7 +145,42 @@ pod-template-hash="2987485252"
 ```
 
 
-## Security
+## Sidecar for functions
+
+You can also add a sidecar to the function container with PodSpec:
+
+```
+    podspec:
+      # A container which will be merged with for pool manager
+      Containers:
+      - name: nodep
+        image: fission/node-env
+        volumeMounts:
+          - name: funcvol
+            mountPath: /etc/funcdata
+            readOnly: true
+      # A additional container in the pods
+      - name: yanode
+        image: fission/node-env
+        command: ['sh', '-c', 'sleep 36000000000']
+```        
+
+
+## Many More!
+
+We have covered the broad items in above examples and following list covers some more features that can be used with PodSpec to enhance the function pods.
+
+- You can add a **custom scheduler** to be used for specific functions.
+- Additional security policies and settings can be set with **security context** field in PodSpec.
+-Introduced in Kubernetes 1.11 **readiness gates** allow extra feedback to the pod status and enables advanced mechanism to signal to Kubernetes that the pod can now serve production traffic.
+- **Priority and priority Class Name** are used with a custom admission controller so you can set the priorities of the pods and effectively allocate resources to pods/functions with higher priority.
+- **Node selector** allows scheduling function pods on specific nodes of the cluster.
+- **Image Pull Secrets** will enable using private registries for all your images!
+
+## Final thoughts
+
+PodSpec are super powerful and extend the functionality of functions for a large variety of use cases and user needs. We have some exciting things we want to try with these new features, keep watching this space for new tutorials and hacks we try with PodSpec and Fission functions.
+
 
 
 **_Author:_**
