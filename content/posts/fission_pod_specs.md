@@ -5,16 +5,53 @@ draft: false
 author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
 ---
 
-# Introduction
+There are features which enable a specific new functionality and then there are features which enable a whole new class of functionality in a product. I am excited to share that PodSpec is now available in Fission. Fission functions can be extended to do many things with PodSpec - such as tolerations, volumes, security context, and more.
 
-There are features which enable a specific new functionality and then there are features which enable a whole new class of functionality in a product. I am excited to share that the PodSpec is now available in Fission. Fission functions can be extended to do many things with PodSpec such as tolerations, volumes, security context to name a few.
+Previously, Fission had support for "container specs" - which allowed you to add environment variables, etc. to functions. With PodSpec - a whole spectrum of new possibilities are now unlocked. While “container spec” still exists for backward compatibility, we recommend using PodSpec for extending your Fission functions moving forward. In this tutorial we will walk through various use cases and working examples with PodSpec.
 
-Fission had support for "container specs" - which allowed you to add environment variables etc. to functions but with PodSpec - a whole bunch of new possibilities are unlocked. While container spec exists for backward compatibility, we recommend using PodSpec for extending your Fission functions. In this tutorial we will walk through various use cases and working examples with PodSpec.
+## What is PodSpec
 
+A pod in Kubernetes is basic unit of deployment. Like every Kubernetes resources the pod consists of the basic declaration, metadata, spec & status.
 
-## Tolerations on functions
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    svc-name: svc-name
+  name: podname
+spec:
+  containers:
+  ```
 
-Taints and tolerations are mechanism to influence scheduling of pods in Kubernetes. There are use cases where you want to schedule specific pods on machines with certain hardware or specific capabilities such as CPU intensive instances. The basic mechanism works by applying taints on nodes of cluster and tolerations on pods. The pods with tolerations matching a certain taint can get scheduled on those nodes. Now you can specify tolerations on functions in the function specification. Let's start with tainting two nodes with "reservation=fission" and two nodes with "reservation=microservices" as shown below. The intent is that two nodes are optimized for functions and other two nodes in cluster are better optimized for long running microservices. We want to schedule functions on nodes with taints meant for functions.
+The spec in a pod defines [the specifications](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status) of many behaviors in a declarative manner. We will refer to this spec as PodSpec for rest of the post. A PodSpec defines the containers, env variables for the container and other properties such as the scheduler name, security context etc.
+
+```
+spec:
+  containers:
+    env:
+    - name: ENV_NAME
+      value: ENV_VALUE
+    image: image_url
+    imagePullPolicy: IfNotPresent
+  dnsPolicy: ClusterFirst
+  nodeName: nodename
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: fission-svc
+```
+
+Fission now supports using the podspec in the Fission environment specs. In this tutorial we will look at various use cases that are possible with PodSpec support in Fission
+
+## Podspec use cases for serverless functions
+
+### Tolerations on functions
+
+**Taints and tolerations** are mechanism to influence scheduling of pods in Kubernetes. There are use cases where you want to schedule specific pods on machines with certain hardware or specific capabilities such as CPU intensive instances. The basic mechanism works by applying taints on nodes of a cluster and tolerations on pods. The pods with tolerations matching a certain taint can get scheduled on those nodes. 
+
+Now you can specify tolerations on functions in the function specification. Let's start with tainting two nodes with "reservation=fission" and two nodes with "reservation=microservices" as shown below. The intent is that two nodes are optimized for functions and other two nodes in cluster are better optimized for long running microservices. We want to schedule functions on nodes with taints meant for functions.
 
 ```
 $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vishal-fission-dev-default-pool-87c8b616-5q2c reservation=fission:NoSchedule
@@ -62,9 +99,11 @@ Let's remove taint from all nodes so we are back to original clean state:
 $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vishal-fission-dev-default-pool-87c8b616-5q2c gke-vishal-fission-dev-default-pool-87c8b616-pg05 gke-vishal-fission-dev-default-pool-87c8b616-t5q1 reservation:NoSchedule-
 ```
 
-## Functions with volumes
+### Functions with volumes
 
-Functions are great for stateless things but there use cases where functions want to deal with data and it is best attached as volume. For example functions used in data pipelines would benefit a lot from volumes being attached to functions. With PodSpec now you can attach a volume to a function. You have to define a volume and then mount it on specific container. In following example we create a simple volume with Kubernetes downward API which dumps information of labels in a file. The volume is then mounted on the function container at `/etc/funcdata`
+Functions are great for stateless things but there use cases where functions deal with data, that is best  attached as volume. For example, functions used in data pipelines would benefit a lot from volumes being attached to functions. 
+
+With PodSpec you can now attach a volume to a function. You have to **define a volume** and then **mount it on specific container**. In the following example we create a simple volume with Kubernetes downward API which dumps information of labels in a file. The volume is then mounted on the function container at `/etc/funcdata`
 
 
 ```
@@ -98,9 +137,11 @@ spec:
   ```
 
 
-## InitContainers with Volumes!
+### InitContainers with Volumes!
 
-Functions also could benefit from a initialization process before actually executing the functions. The initialization could allow you to fetch data from a remote bucket for example before actually starting the processing. PodSpec allow you to define init containers and also use volumes like we did in previous section.
+Functions could also benefit from an **initialization process** before actually executing the functions. The initialization could allow you to fetch data from a remote bucket, for example, before actually starting the processing. 
+
+PodSpec allow you to **define init containers** and also use volumes like we did in the previous example.
 
 ```
     podspec:
@@ -121,7 +162,7 @@ Functions also could benefit from a initialization process before actually execu
                   fieldPath: metadata.labels
 ```
 
-We can see that the init container is run first before the actual function container is run:
+We can see that the init container is run first, before the actual function container is run:
 
 ```
 $ kgpo $ff
@@ -147,7 +188,7 @@ pod-template-hash="2987485252"
 
 ## Sidecar for functions
 
-You can also add a sidecar to the function container with PodSpec:
+You can also **add a sidecar** to the function container with PodSpec:
 
 ```
     podspec:
@@ -168,18 +209,27 @@ You can also add a sidecar to the function container with PodSpec:
 
 ## Many More!
 
-We have covered the broad items in above examples and following list covers some more features that can be used with PodSpec to enhance the function pods.
+The examples above are only the tip of the iceberg for what your functions can do with PodSpec. 
+
+Here are some additional ideas for how you can use PodSpec to enhance your function pods:
 
 - You can add a **custom scheduler** to be used for specific functions.
 - Additional security policies and settings can be set with **security context** field in PodSpec.
--Introduced in Kubernetes 1.11 **readiness gates** allow extra feedback to the pod status and enables advanced mechanism to signal to Kubernetes that the pod can now serve production traffic.
+- Introduced in Kubernetes 1.11 **readiness gates** allow extra feedback to the pod status and enable advanced mechanism to signal to Kubernetes that the pod can now serve production traffic.
 - **Priority and priority Class Name** are used with a custom admission controller so you can set the priorities of the pods and effectively allocate resources to pods/functions with higher priority.
 - **Node selector** allows scheduling function pods on specific nodes of the cluster.
 - **Image Pull Secrets** will enable using private registries for all your images!
 
-## Final thoughts
+### Final thoughts
 
-PodSpec are super powerful and extend the functionality of functions for a large variety of use cases and user needs. We have some exciting things we want to try with these new features, keep watching this space for new tutorials and hacks we try with PodSpec and Fission functions.
+PodSpec are extremely powerful and extend the functionality of serverless functions for a wide variety of use cases and user needs. We have some exciting things we want to try with these new features, keep an eye out for new tutorials and hacks for using PodSpec with Fission functions.
+
+
+**_Author:_**
+
+* [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [Infracloud Technologies](http://infracloud.io/)
+
+
 
 
 
