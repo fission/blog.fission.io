@@ -7,7 +7,7 @@ author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
 
 There are features which enable a specific new functionality and then there are features which enable a whole new class of functionality in a product. I am excited to share that PodSpec is now available in Fission. Fission functions can be extended to do many things with PodSpec - such as tolerations, volumes, security context, and more.
 
-Previously, Fission had support for "container specs" - which allowed you to add environment variables, etc. to functions. With PodSpec - a whole spectrum of new possibilities are now unlocked. While “container spec” still exists for backward compatibility, we recommend using PodSpec for extending your Fission functions moving forward. In this tutorial we will walk through various use cases and working examples with PodSpec.
+Previously, Fission had support for "container specs" - which allowed you to add environment variables, etc. to functions. With PodSpec - a whole spectrum of new possibilities are now unlocked. While "container spec" still exists for backward compatibility, we recommend using PodSpec for extending your Fission functions moving forward. In this tutorial we will walk through various use cases and working examples with PodSpec.
 
 ## What is PodSpec
 
@@ -48,9 +48,11 @@ Fission now supports using PodSpec in the Fission environment specs. In this tut
 
 ## Podspec use cases for serverless functions
 
+**Note**: PodSpec is in alpha stage and it's behavior may be changed in the future.
+
 ### Tolerations on functions
 
-**Taints and tolerations** are mechanism to influence scheduling of pods in Kubernetes. There are use cases where you want to schedule specific pods on machines with certain hardware or specific capabilities such as CPU intensive instances. The basic mechanism works by applying taints on nodes of a cluster and tolerations on pods. The pods with tolerations matching a certain taint can get scheduled on those nodes. 
+**Taints and tolerations** are mechanisms to influence scheduling of pods in Kubernetes. There are use cases where you want to schedule specific pods onto machines with certain hardware or specific capabilities such as CPU intensive instances. The basic mechanism works by applying taints on nodes of a cluster and tolerations on pods. The pods with tolerations matching a certain taint can get scheduled on those nodes. 
 
 Now you can specify tolerations on functions in the function specification. Let's start with tainting two nodes with "reservation=fission" and two nodes with "reservation=microservices" as shown below. The intent is that two nodes are optimized for functions and other two nodes in cluster are better optimized for long running microservices. We want to schedule functions on nodes with taints meant for functions.
 
@@ -102,7 +104,7 @@ $ kubectl taint nodes gke-vishal-fission-dev-default-pool-87c8b616-549c gke-vish
 
 ### Functions with volumes
 
-Functions are great for stateless things but there use cases where functions deal with data, that is best  attached as volume. For example, functions used in data pipelines would benefit a lot from volumes being attached to functions. 
+Functions are great for stateless things but there use cases where functions deal with data, that is best attached as volume. For example, functions used in data pipelines would benefit a lot from volumes being attached to functions. 
 
 With PodSpec you can now attach a volume to a function. You have to **define a volume** and then **mount it on specific container**. In the following example we create a simple volume with Kubernetes downward API which dumps information of labels in a file. The volume is then mounted on the function container at `/etc/funcdata`
 
@@ -210,7 +212,7 @@ You can also **add a sidecar** to the function container with PodSpec:
 
 ## Many More!
 
-The examples above are only the tip of the iceberg for what your functions can do with PodSpec. 
+The examples above are only the tips of the iceberg for what your functions can do with PodSpec. 
 
 Here are some additional ideas for how you can use PodSpec to enhance your function pods:
 
@@ -223,16 +225,7 @@ Here are some additional ideas for how you can use PodSpec to enhance your funct
 
 ### Final thoughts
 
-PodSpec are extremely powerful and extend the functionality of serverless functions for a wide variety of use cases and user needs. We have some exciting things we want to try with these new features, keep an eye out for new tutorials and hacks for using PodSpec with Fission functions.
-
-
-**_Author:_**
-
-* [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [Infracloud Technologies](http://infracloud.io/)
-
-
-
-
+PodSpec is extremely powerful and extends the functionality of serverless functions for a wide variety of use cases and user needs. We have some exciting things we want to try with these new features, keep an eye out for new tutorials and hacks for using PodSpec with Fission functions.
 
 **_Author:_**
 
