@@ -8,8 +8,8 @@ See here for instructions on [installing Hugo](https://gohugo.io/getting-started
 
 ### Content 
 
-cd to this directory, and create a new page with `hugo new
-posts/something.md`.
+Create a new page with `hugo new
+posts/something.md` and the new page will be created in the content/posts dir.
 
 Write your post in that new file. You can live preview with `hugo
 serve -D` from the root directory.
