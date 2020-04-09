@@ -1,10 +1,11 @@
----
-title: "FaaS Function Composition with Fission Workflows and NATS"
-date: 2018-03-22T01:46:30-07:00
-draft: false
----
-
-
++++
+title = "FaaS Function Composition with Fission Workflows and NATS"
+date = "2018-03-22T01:46:30-07:00"
+author = "Soam Vasani"
+description = "Compose functions to execute workflows with NATS and Fission functions"
+categories = ["NATS", "Workflow"]
+type = "post"
++++
 
 [NATS](https://nats.io) is a lightweight, open source, high-performance, messaging system for cloud native applications, IOT messaging, and microservices architectures. The NATS messaging system implements a scalable [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) (or pub/sub) distribution model. There are a number of open source technologies like [Kafka](https://kafka.apache.org/), and several cloud technologies such as [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) and [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) that adopt this model as well.
 

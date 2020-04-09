@@ -1,9 +1,10 @@
----
-title: "Automated Canary Deployments in Fission"
-date: 2018-10-16T01:02:00-07:00
-publishDate: 2018-10-15T01:04:00-07:00
-draft: false
----
++++
+title = "Automated Canary Deployments in Fission"
+date = "2018-10-16T01:02:00Z"
+description = "This is meta description"
+categories = ["Design Tools"]
+type = "post"
++++
 
 Canary Deployments are a time-tested deployment strategy to reduce
 risk. The fundamental idea is that deploying software into a

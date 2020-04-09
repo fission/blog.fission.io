@@ -1,9 +1,10 @@
----
-title: "Hello World: Creating Functions using Fission (in Golang)"
-author: "Timirah James, Developer Advocate"
-date: 2018-03-05T11:13:45-08:00
-draft: false
----
++++
+title = "Hello World: Creating Functions using Fission (in Golang)"
+date = "2018-03-05T11:13:45-08:00"
+author = "Timirah James"
+categories = ["tutorial", "go"]
+type = "post"
++++
 
 
 # First, What is Serverless?

@@ -1,10 +1,11 @@
----
-title: "Hello World in Go for Kubernetes Newbies"
-author: "Timirah James, Developer Advocate"
-date: 2018-02-20T13:52:34-08:00
-draft: false
----
-
++++
+title = "Hello World in Go for Kubernetes Newbies"
+date = "2018-02-20T13:52:34-08:00"
+author = "Timirah James"
+description = "Getting started with GO lang and Fission on Kubernetes"
+categories = ["tutorial"]
+type = "post"
++++
 
 
 Over the past 3 or so years, it seems the term “containerization” and the name “Kubernetes” have been amplified throughout the tech community non-stop. Even with that being so, as a developer, it can be easy to shy away from Kubernetes as its learning curve is notorious for being a steep one. But everyone’s gotta start somewhere, right? This tutorial will give you a basic overview of some of main features of Kubernetes, while walking you through the process of running a simple HelloWorld Golang application locally on your machine to running it on Kubernetes.
