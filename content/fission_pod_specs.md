@@ -1,9 +1,11 @@
----
-title: "Functions On Steroids With PodSpec"
-date: 2019-05-20T13:41:33+05:30
-draft: false
-author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
----
++++
+title = "Functions On Steroids With PodSpec"
+date = "2019-05-20T13:41:33+05:30"
+author = "Vishal Biyani"
+description = "There is a lot more you can do with Fission functions and PodSpec."
+categories = ["Fission", "PodSpec", "Tolerations", "Volumes", "Init", "Sidecar"]
+type = "post"
++++
 
 There are features which enable a specific new functionality and then there are features which enable a whole new class of functionality in a product. I am excited to share that PodSpec is now available in Fission. Fission functions can be extended to do many things with PodSpec - such as tolerations, volumes, security context, and more.
 

@@ -1,9 +1,11 @@
----
-title: "Using Fission's Prometheus Metrics"
-date: 2018-10-16T01:01:00-07:00
-publishDate: 2018-10-15T01:04:00-07:00
-draft: false
----
++++
+title = "Using Fission's Prometheus Metrics"
+date = "2018-10-16T01:01:00-07:00"
+author = "Soam Vasani"
+description = "Write serverless Java functions with JVM"
+categories = ["Fission", "application"]
+type = "post"
++++
 
 You can’t improve what you can’t measure.  Visibility
 into metrics is a foundational requirement for much of

@@ -1,9 +1,11 @@
----
-title: "Fission Kafka Sample"
-date: 2018-08-30T22:50:51+05:30
-draft: false
-author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
----
++++
+title = "Fission Kafka Sample"
+date = "2018-08-30T22:50:51+05:30"
+author = "Vishal Biyani"
+description = "Write serverless Java functions with JVM"
+categories = ["Fission", "Kafka", "Serverless", "redis", "IOT"]
+type = "post"
++++
 
 # Introduction
 

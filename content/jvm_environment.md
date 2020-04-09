@@ -1,9 +1,11 @@
----
-title: "Writing Serverless Functions for JVM with Fission.io"
-date: 2018-08-30T22:26:41+05:30
-draft: false
-author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
----
++++
+title = "Writing Serverless Functions for JVM with Fission.io"
+date = "2018-08-30T22:26:41+05:30"
+author = "Vishal Biyani"
+description = "Write serverless Java functions with JVM"
+categories = ["Fission", "JVM", "Java", "Serverless"]
+type = "post"
++++
 
 # Introduction
 

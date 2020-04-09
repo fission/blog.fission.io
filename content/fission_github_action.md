@@ -1,9 +1,11 @@
----
-title: "New! Fission GitHub Action: Easily Automate Your CI/CD Workflows"
-date: 2019-04-25T18:30:53+05:30
-draft: false
-author: "[Vishal Biyani](https://twitter.com/vishal_biyani)"
----
++++
+title = "New! Fission GitHub Action: Easily Automate Your CI/CD Workflows"
+date = "2019-04-25T18:30:53+05:30"
+author = "Vishal Biyani"
+description = "Easily deploy Fission functions with GitHub Actions"
+categories = ["Fission", "GitHub Action", "CI/CD", "Serverless"]
+type = "post"
++++
 
 
 # Introduction

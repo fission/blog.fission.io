@@ -40,24 +40,29 @@ link = "plugins/search/search.js"
 
 # main menu
 [[menu.main]]
-URL = "contact"
-name = "Contact"
+URL = "https://docs.fission.io/latest/installation/"
+name = "Install"
 weight = 1
 
 [[menu.main]]
-URL = "tools"
-name = "tools"
+URL = "https://github.com/fission/fission"
+name = "GitHub"
+weight = 2
+
+[[menu.main]]
+URL = "https://join.slack.com/t/fissionio/shared_invite/enQtOTI3NjgyMjE5NzE3LTllODJiODBmYTBiYWUwMWQxZWRhNDhiZDMyN2EyNjAzMTFiYjE2Nzc1NzE0MTU4ZTg2MzVjMDQ1NWY3MGJhZmE"
+name = "Join Slack"
 weight = 2
 
 # footer menu
 [[menu.footer]]
-URL = "contact"
-name = "Contact"
+URL = "https://join.slack.com/t/fissionio/shared_invite/enQtOTI3NjgyMjE5NzE3LTllODJiODBmYTBiYWUwMWQxZWRhNDhiZDMyN2EyNjAzMTFiYjE2Nzc1NzE0MTU4ZTg2MzVjMDQ1NWY3MGJhZmE"
+name = "Join Slack"
 weight = 1
 
 [[menu.footer]]
-URL = "tools"
-name = "tools"
+URL = "https://github.com/fission/fission"
+name = "GitHub"
 weight = 2
 
 
@@ -89,7 +94,7 @@ enable = true
 
 ####################### banner #######################################
 [params.banner]
-bgImage = ""
+#bgImage = "/images/fission-chart2.png"
 title = "Fission: An open source, Kubernetes-native Serverless Framework"
 
 ######################## call to action ###############################

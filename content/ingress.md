@@ -1,7 +1,11 @@
----
-title: "Setting Ingress for your Functions"
-date: 2019-10-28T22:09:38+08:00
----
++++
+title = "Setting Ingress for your Functions"
+date = "2019-10-28T22:09:38+08:00"
+author = "Ta-Ching Chen"
+description = "How to use ingress with TLS for Fission functions"
+categories = ["Fission", "ingress", "TLS"]
+type = "post"
++++
 
 Some exciting updates to ingress host path, annotations, and TLS support.
 In Fission version 1.6.0, which was released on Friday 11 October 2019, new features arrived. This blogpost covers the exciting updates to ingress host path, annotations, and TLS support.

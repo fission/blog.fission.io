@@ -1,8 +1,12 @@
----
-title: "Getting Started: Composing Serverless Functions with Fission Workflows (Part 1)"
-date: 2018-03-27T04:25:55-07:00
-draft: false
----
++++
+title = "Getting Started: Composing Serverless Functions with Fission Workflows (Part 1)"
+date = "2018-03-27T04:25:55-07:00"
+author = "Erwin Van Eyk"
+description = "Composing Fission functions with Fission Workflows"
+categories = ["Fission", "Workflow"]
+type = "post"
++++
+
 
 _This is the first of a 2-part introduction to Fission Workflows._
 

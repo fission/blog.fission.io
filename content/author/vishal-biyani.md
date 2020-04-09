@@ -1,6 +1,6 @@
 +++
 title = "Vishal Biyani"
-image = "/images/author/john-doe.jpg"
+image = "/images/author/Vishal-Biyani.jpg"
 description = "Cloud Native & Serverless guy"
 +++
 

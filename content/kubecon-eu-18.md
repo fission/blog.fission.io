@@ -1,8 +1,11 @@
----
-title: "Function Composition in a Serverless World [Video]"
-date: 2018-05-14T09:16:30-07:00
-draft: false
----
++++
+title = "Function Composition in a Serverless World [Video]"
+date = "2018-05-14T09:16:30-07:00"
+author = "Erwin Van Eyk"
+description = "Composing Fission functions with Fission Workflows"
+categories = ["Fission", "Workflow"]
+type = "post"
++++
 
 
 Earlier this month, Software Engineer Erwin van Eyk and Developer Advocate Timirah James gave an awesome talk on function composition at KubeCon EU in Copenhagen, Denmark. The talk covered 5 serverless function compostion styles and the significance of function composition when deploying serverless functions. 

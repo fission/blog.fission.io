@@ -1,9 +1,12 @@
----
-title: "Live-Reload in Fission: Instant feedback on your Serverless Functions"
-date: 2018-10-16T01:04:00-07:00
-publishDate: 2018-10-15T01:04:00-07:00
-draft: false
----
++++
+title = "Live-Reload in Fission: Instant feedback on your Serverless Functions"
+date = "2018-10-16T01:04:00-07:00"
+author = "Ta-Ching Chen"
+description = "Live reloading of functions for faster feedback!"
+categories = ["Fission", "Dev Workflow"]
+type = "post"
++++
+
 
 Accelerating feedback loops are an important devops
 principle: the sooner you find a bug, the cheaper it is
