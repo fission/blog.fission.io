@@ -95,6 +95,7 @@ enable = true
 ####################### banner #######################################
 [params.banner]
 #bgImage = "/images/fission-chart2.png"
+#image = "images/fission-chart2.png"
 title = "Fission: An open source, Kubernetes-native Serverless Framework"
 
 ######################## call to action ###############################
