@@ -73,8 +73,8 @@ home = "Home"
 # logo
 logo = "/images/logo_small.png"
 # meta data
-author = "Themefisher"
-description = "This is meta description"
+author = "Fission"
+description = "Fission: An open source, Kubernetes-native Serverless Framework"
 # google tag manager
 google_tag_manager = "" # your id
 # google analitycs ID
