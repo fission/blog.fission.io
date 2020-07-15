@@ -1,7 +1,8 @@
 ---
 title: "Event Driven Scaling Fission Function Using KEDA"
 date: 2020-07-14T18:09:02+05:30
-categories: ["Fission", "KEDA", "Tutorial", "Serverless", "go"]
+author: "Fission"
+categories: ["Fission", "Serverless", "go", "Keda", "Event-driven", "Apache Kafka", "Tutorial", "Faas"]
 description: "Enabling event driven autoscaling with KEDA integration"
 type: "post"
 ---
@@ -44,12 +45,18 @@ The rest of the post will walk through a step by step guide for using the new me
 We will be deploying KEDA using Helm 3. For more installation options, checkout [deploying KEDA](https://keda.sh/docs/1.5/deploy/).
 
 1. Add Helm repo
-   `$ helm repo add kedacore https://kedacore.github.io/charts`
+```
+$ helm repo add kedacore https://kedacore.github.io/charts
+```
 2. Update Helm repo
-   `$ helm repo update`
+```
+$ helm repo update
+```
 3. Install KEDA Helm chart
-   `$ kubectl create namespace keda`
-   `$ helm install keda kedacore/keda --namespace keda`
+```
+$ kubectl create namespace keda
+$ helm install keda kedacore/keda --namespace keda
+```
 
 ### Setup Apache Kafka
 
@@ -157,9 +164,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 ```
 
 Let’s create the environment and function
-
-`fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0`
-`fission fn create --name producer --env go --src producer.go --entrypoint Handler`
+```
+$ fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
+$ fission fn create --name producer --env go --src producer.go --entrypoint Handler
+```
 
 ### Creating Consumer Function
 
@@ -178,47 +186,54 @@ module.exports = async function (context) {
 
 Let’s create the environment and function
 
-`fission env create --name nodeenv --image fission/node-env`
-`fission fn create --name consumer --env nodeenv --code consumer.js`
+```
+$ fission env create --name nodeenv --image fission/node-env
+$ fission fn create --name consumer --env nodeenv --code consumer.js
+```
 
 ## Creating Message Queue Trigger
-
-`fission mqt create --name kafkatest --function consumer --mqtype kafka --mqtkind=keda --topic request-topic --resptopic response-topic --errortopic error-topic --maxretries 3 --metadata bootstrapServers=my-cluster-kafka-brokers.my-kafka-project.svc:9092 --metadata consumerGroup=my-group --metadata topic=request-topic  --cooldownperiod=30 --pollinginterval=5`
-
-To take leverage advantage of KEDA scaling, one must set `--mqtkind=keda`
+```
+$ fission mqt create --name kafkatest --function consumer --mqtype kafka --mqtkind keda --topic request-topic --resptopic response-topic --errortopic error-topic --maxretries 3 --metadata bootstrapServers=my-cluster-kafka-brokers.my-kafka-project.svc:9092 --metadata consumerGroup=my-group --metadata topic=request-topic  --cooldownperiod=30 --pollinginterval=5`
+```
+To take leverage advantage of KEDA scaling, one must set `--mqtkind keda`
 
 ## Everything in Action
 
 Open one terminal and execute the following to keep watch on pods
-`kubectl get pods -w`
-
+```
+$ kubectl get pods -w
+```
 Let’s subscribe to our response-topic to see the response return by consumer function invocations. Open another terminal and execute the following:
-`kubectl run kafka-consumer -ti --image=strimzi/kafka:latest-kafka-2.5.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server my-cluster-kafka-brokers.my-kafka-project.svc:9092 --topic response-topic`
+```
+$ kubectl run kafka-consumer -ti --image=strimzi/kafka:latest-kafka-2.5.0 --rm=true --restart=Never -- bin/kafka-console-consumer.sh --bootstrap-server my-cluster-kafka-brokers.my-kafka-project.svc:9092 --topic response-topic
+```
 
 Since everything is in place, let’s invoke our producer function in another terminal
-`fission fn test --name producer`
+```
+$ fission fn test --name producer
+```
 
 Viola! Now you can see eventually three new pods are being created in the first terminal and response of the consumer function in the second terminal. 
 
 You would probably have an output like this in the first terminal
 
-![consumer pods](../../../images/pods_watch.png)
+![consumer pods](../../../images/event-driven-scaling-fission-function-using-keda/pods_watch.png)
 
 And output like this in the second terminal
 
-![response messages](../../../images/response.png)
+![response messages](../../../images/event-driven-scaling-fission-function-using-keda/response.png)
 
 # What next?
 
 We have developed the Keda Integration and Kafka connector so far and we soon will be adding connectors for RabbitMQ, NATS too. We would love to see more connectors being contributed by the community as there are many integrations that Keda supports!
 
-![scalers](../../../images/scalers.png)
+![scalers](../../../images/event-driven-scaling-fission-function-using-keda/scalers.png)
 
 
 --- 
 
 
-**_Author:_**
+**_Authors:_**
 
 * [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [InfraCloud Technologies](http://infracloud.io/)
 * [Rahul Bhati](https://twitter.com/TheRahulBhati)  **|**  [Fission Contributor](https://github.com/therahulbhati)  **|**  Product Engineer - [InfraCloud Technologies](http://infracloud.io/)
