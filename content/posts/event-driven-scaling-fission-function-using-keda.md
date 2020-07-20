@@ -253,8 +253,10 @@ And output like this in the second terminal
 
 We have developed the Keda Integration and Kafka connector so far and we soon will be adding connectors for RabbitMQ, NATS too. We would love to see more connectors being contributed by the community as there are many integrations that Keda supports!
 
+Here is the guide to [Contributing to Fission](https://docs.fission.io/docs/contributing/).
+
 Fission issue link: https://github.com/fission/fission/issues/1663
-[Contributing to Fission](https://docs.fission.io/docs/contributing/)
+
 
 ![scalers](../../../images/event-driven-scaling-fission-function-using-keda/scalers.png)
 
