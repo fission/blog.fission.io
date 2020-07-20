@@ -1,7 +1,7 @@
 ---
 title: "Event Driven Scaling Fission Function Using KEDA"
 date: 2020-07-14T18:09:02+05:30
-author: "Fission"
+author: "Rahul Bhati"
 categories: ["Fission", "Serverless", "go", "Keda", "Event-driven", "Apache Kafka", "Tutorial", "Faas"]
 description: "Enabling event driven autoscaling with KEDA integration"
 type: "post"
@@ -15,7 +15,7 @@ Events and integrations with event sources such as message queues are an importa
 - Autoscaling of the trigger handler was not available.
 - Lastly - one Fission installation could connect to and handle only one instance of a MQ. So for example you could only connect to one Kafka instance in a given Fission installation. 
 
-When we decided to build out these features we came across Keda project and it solved most of the limitations which Fission had in the event integration area. Let’s dive into how it works!
+When we decided to build out these features we came across [KEDA project](https://keda.sh) and it solved most of the limitations which Fission had in the event integration area. Let’s dive into how it works!
 
 # Architecture
 
@@ -28,7 +28,7 @@ Let’s first understand how the whole thing works. We won’t explain Keda in d
 1. The user creates a trigger - for Keda based integration you have to specify the “mqtkind=keda” and add all relevant parameters. These parameters are different for each message queue and hence are encapsulated in a metadata field and follow a key-value format. As soon as you create the  MQ Trigger, Fission creates a ScaledObject and a consumer deployment object which is referenced by ScaledObject. The ScaledObject is a Keda’s way of encapsulating the consumer deployment and all relevant information for connecting to an event source! Keda goes ahead and creates a HPA for the deployment and scales down the deployment to zero.
 2. As the message arrives in the event source - the Keda will scale the HPA and deployment from 0 - to 1 for consuming messages. As more messages arrive the deployment is scaled beyond 1 automatically too.
 3. The deployment is like an connector which consumes messages from the source and then calls a function. 
-4. The function consumes the message and puts the response in response topic and errors in error topic as may be applicable.
+4. The function consumes the message and returns the response to deployment pods, which puts the response in response topic and errors in error topic as may be applicable.
 
 # Tutorial
 
@@ -163,6 +163,19 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
+go.mod
+
+```
+module gitub.com/therahulbhati/scalingfissionfunction
+
+go 1.12
+
+require (
+	github.com/Shopify/sarama v1.23.1
+	gopkg.in/jcmturner/goidentity.v3 v3.0.0 // indirect
+)
+```
+
 Let’s create the environment and function
 ```
 $ fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
@@ -195,7 +208,20 @@ $ fission fn create --name consumer --env nodeenv --code consumer.js
 ```
 $ fission mqt create --name kafkatest --function consumer --mqtype kafka --mqtkind keda --topic request-topic --resptopic response-topic --errortopic error-topic --maxretries 3 --metadata bootstrapServers=my-cluster-kafka-brokers.my-kafka-project.svc:9092 --metadata consumerGroup=my-group --metadata topic=request-topic  --cooldownperiod=30 --pollinginterval=5`
 ```
-To take leverage advantage of KEDA scaling, one must set `--mqtkind keda`
+To take leverage advantage of KEDA scaling, one must set `--mqtkind keda`. 
+Following is the description of parameter used in creating the message queue trigger:
+
+1. name: Name of the message queue trigger
+2. function: Fission function to be invoked
+3. mqtype: Message queue type
+4. topic: Message queue topic the trigger listens on
+5. mqtkind: Kind of Message Queue Trigger
+6. resptopic: Topic that the function response is sent on
+7. errortopic: Topic that the function error messages are sent to
+8. maxretries: Maximum number of times the function will be retried upon failure 
+9. pollinginterval: Interval to check the message source for up/down scaling operation of consumers
+10. cooldownperiod: The period to wait after the last trigger reported active before scaling the consumer back to 0
+11. metadata: Metadata needed for connecting to source system in format: --metadata key1=value1 --metadata key2=value2
 
 ## Everything in Action
 
@@ -227,6 +253,9 @@ And output like this in the second terminal
 
 We have developed the Keda Integration and Kafka connector so far and we soon will be adding connectors for RabbitMQ, NATS too. We would love to see more connectors being contributed by the community as there are many integrations that Keda supports!
 
+Fission issue link: https://github.com/fission/fission/issues/1663
+[Contributing to Fission](https://docs.fission.io/docs/contributing/)
+
 ![scalers](../../../images/event-driven-scaling-fission-function-using-keda/scalers.png)
 
 
@@ -235,5 +264,4 @@ We have developed the Keda Integration and Kafka connector so far and we soon wi
 
 **_Authors:_**
 
-* [Vishal Biyani](https://twitter.com/vishal_biyani)  **|**  [Fission Contributor](https://github.com/vishal-biyani)  **|**  CTO - [InfraCloud Technologies](http://infracloud.io/)
 * [Rahul Bhati](https://twitter.com/TheRahulBhati)  **|**  [Fission Contributor](https://github.com/therahulbhati)  **|**  Product Engineer - [InfraCloud Technologies](http://infracloud.io/)
