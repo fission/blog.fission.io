@@ -30,7 +30,7 @@ The components are briefed below.
 
 The stack is depicted briefly in the below image
 
-![loki_grafana_stack](../../static/images/loki-grafana/stack.png)
+![loki_grafana_stack](../../../images/loki-grafana/stack.png)
 
 
 # Setting up
@@ -112,7 +112,7 @@ An exported JSON of one such dashboard can be found [here](../../static/misc/lok
 
 Once imported, the dashboard will look similar to below image.
 
-![loki_grafana_dashboard](../../static/images/loki-grafana/loki-grafana-dashboard.png)
+![loki_grafana_dashboard](../../../images/loki-grafana/loki-grafana-dashboard.png)
 
 
 **_Authors:_**
