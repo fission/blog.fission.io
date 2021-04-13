@@ -179,7 +179,7 @@ require (
 Let’s create the environment and function
 ```
 $ fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
-$ fission fn create --name producer --env go --src producer.go --entrypoint Handler
+$ fission fn create --name producer --env go --src producer.go --src go.mod --entrypoint Handler
 ```
 
 ### Creating Consumer Function
