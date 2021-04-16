@@ -104,7 +104,7 @@ Now that we have all of the things ready, let's create a function spec. The spec
 - We add all four files to deployarchive - shell script, two txt files with pattern list and the gobuster binary
 - The entrypoint for this function is `--entrypoint run.sh`
 
-```sh
+```
 $ fission spec init
 $ fission env create --name binary --image vishalbiyani/binary-buster-env:2 --version 3 --poolsize 1 --spec
 $ fission fn create --name gobuster --env binary --deploy gobuster --deploy list_small.txt --deploy run.sh --entrypoint run.sh --spec
