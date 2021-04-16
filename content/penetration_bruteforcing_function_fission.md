@@ -34,7 +34,7 @@ Have a nice day! 👋
 
 And then create a namespace and install the Fission with a Helm chart. You can update the version of Fission in chart URL to point to latest version
 
-```sh
+```
 $ kubectl create ns fission
 $ helm install --namespace fission --name-template fission https://github.com/fission/fission/releases/download/1.12.0/fission-core-1.12.0.tgz
 
@@ -45,7 +45,7 @@ Now that our Fission setup is ready, let's get the function code ready! You will
 
 We have a simple shell script which uses gobuster binary and provides as argument a website and the txt file which has patterns to be tested for. You can notice that all files are being referenced from directory `/userfunc/deployarchive/` - i.e. because we are using deployment archive type and all files will land in same directory.
 
-```sh
+```
 #!/bin/sh
 
 echo "Inside Shell"
@@ -75,7 +75,7 @@ Now the gobuster binary we plan to use is built for Linux AMD64 architecture but
 
 So we copy the server.go, env.go and Dockerfile from binary environment of Fission which can be found here: https://github.com/fission/environments/tree/master/binary. 
 
-```sh
+```
 .
 ├── Dockerfile
 ├── README.md
@@ -111,7 +111,7 @@ $ fission fn create --name gobuster --env binary --deploy gobuster --deploy list
 ```
 The above commands created the spec file locally, now we can apply them to create in Kind server we created earlier.
 
-```sh
+```
 $ fission spec apply
 DeployUID: 911be734-bb01-4abf-b7aa-a8bc99cc7ce9
 Resources:
