@@ -9,7 +9,7 @@ type = "post"
 
 # Introduction
 
-[Gobuster](https://github.com/OJ/gobuster) is a tool for bruteforcing websites Directory/File, DNS and VHost written in Go. It enables penetration testing and and brute forcing for hackers and testers. In this tutorial we will use Gobuster with Fission's binary environment to run it for specific sites and for specific patterns listed in a text file.
+[Gobuster](https://github.com/OJ/gobuster) is a tool for bruteforcing websites Directory/File, DNS and VHost written in Go. It enables penetration testing and and brute forcing for hackers and testers. In this tutorial we will use Gobuster with Fission's binary environment to run it for specific sites and for specific patterns listed in a text file. Fission allows the teams doing penetration testing to focus on code and execution rather than understanding all things around infrastructure.
 
 # Setup
 
@@ -188,8 +188,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-As you can see 
-
+As you can see the results are a bit more verbose this time and Gobuster's response is 403 for a bunch of resources. What we did is a sample of what gobuster can do and we only tried for a few patterns. The gouster can be used with Fission to do extensive penetration testing. The best part is a security person need not know all the things about Kubernetes or deployment and can use Fission to simply write code and execute it.
 
 **Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
 
