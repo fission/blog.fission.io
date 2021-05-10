@@ -1,7 +1,7 @@
 
 +++
 title = "Headless Chrome with Puppeteer in a function"
-date = "2021-04-19T23:50:51+05:30"
+date = "2021-05-09T23:50:51+05:30"
 author = "Vishal Biyani"
 description = "Test websites with a headless chrome and Puppeteer in a fission function"
 categories = ["Fission", "Puppeteer", "Chrome", "headless", "website", "testing"]
