@@ -9,7 +9,7 @@ type = "post"
 
 # Introduction
 
-[Part 1](/posts/how-to-develop-a-serverless-application-with-fission-pt-1) we talked about the advantage of adopting fission as serverless framework on 
+[Part 1](/how-to-develop-a-serverless-application-with-fission-pt-1) we talked about the advantage of adopting fission as serverless framework on 
 kubernetes, basic concept of around fission core and how to create a simple HelloWorld example with fission.
 
 In this post we'll dive deeper to see what's the payload of a HTTP request being passed to user function 
@@ -165,7 +165,7 @@ $ fission httptrigger create --method GET \
 ### Function
 
 To handle a REST API request, normally a function need to extract resource from the request URL. 
-In fission you can get the resource value from request header directly as we described in [Request Payload](/posts/how-to-develop-a-serverless-application-with-fission-pt-2/#request-payload).
+In fission you can get the resource value from request header directly as we described in [Request Payload](#request-payload).
 
 That means you can get value from header with key `X-Fission-Params-Id` if URL is `/guestbook/messages/{id}`.
 
@@ -270,7 +270,7 @@ dbUrl := "postgresql://root@cockroachdb.guestbook:26257/guestbook?sslmode=disabl
 This part we know what's the actual request payload a function get and understand how to developer a guestbook application that
 store message in 3rd-party database service.
 
-[Part 3](/posts/how-to-develop-a-serverless-application-with-fission-pt-3) will introduce how to use AJAX to interact with backend
+[Part 3](/how-to-develop-a-serverless-application-with-fission-pt-3) will introduce how to use AJAX to interact with backend
 function also how to deploy a application to different fission clusters. 
 
 And feel free to [join the Fission community](https://fission.io/community/)!

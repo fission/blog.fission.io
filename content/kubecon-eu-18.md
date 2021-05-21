@@ -221,7 +221,7 @@ Fission Workflows utilizes two main concepts:
 
  **OR**   
 
- [Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](https://blog.fission.io/posts/fission-workflows-pt-1/)
+ [Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](/fission-workflows-pt-1/)
 
 
 
