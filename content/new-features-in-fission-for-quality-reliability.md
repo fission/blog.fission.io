@@ -49,7 +49,7 @@ services (i.e. database, API calls, etc.) that are used in Production.
 ![Live-Reload](/images/record-replay.jpg)
 
 [Check out this blog post to learn how to use live-reload in
-Fission.](/posts/live-reload/)
+Fission.](/live-reload/)
 
 ## Record-replay: Simplify testing and debugging
 
@@ -68,9 +68,6 @@ subset of live production traffic -- this can help developers
 reproduce failures, and test application updates.
 
 ![Record-replay](/images/record-replay.jpg)
-
-[Check out this blog post to learn how to use Record-Replay in
-Fission](/posts/record-replay/)
 
 ## Automated Canary Deployments: Reduce the risk of failed releases
 
@@ -99,7 +96,7 @@ that will trigger a roll back.
 ![Automated Canary Deployments](/images/prometheus-canary-screenshot.png)
 
 [See this post for details on how to use Automated Canary Deployments
-in Fission](https://blog.fission.io/posts/automated-canary-deployments/)
+in Fission](/automated-canary-deployments/)
 
 ## Prometheus Integration: Easy metrics collection and alerts
 

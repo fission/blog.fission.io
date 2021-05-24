@@ -44,7 +44,7 @@ The fast-moving innovation that takes place every day.
 
 --- 
 
-![rosy-image](../../images/Rosy-G.jpg)
+![rosy-image](../../images/wioss/Rosy-G.jpg)
 
 ## Rosy Gupta
 
@@ -76,7 +76,7 @@ Everyone supports each other, especially to the new-comers.
 
 ---
 
-![mary-image](../../images/Mary-T.jpg)
+![mary-image](../../images/wioss/Mary-T.jpg)
 
 ## Mary Thengvall
 
@@ -110,7 +110,7 @@ Their passion, the pure enjoyment they get out of sharing their work, and the wa
 
 ---
 
-![amy-image](../../images/Amy-pic.jpg)
+![amy-image](../../images/wioss/Amy-pic.jpg)
 
 
 ## Amy Chen
@@ -143,7 +143,7 @@ I love that open source collaborates with teams across companies and individual 
 
 --- 
 
-![shilla-image](../../images/Shilla.jpg)
+![shilla-image](../../images/wioss/Shilla.jpg)
 
 ## Shilla Saebi
 
@@ -176,7 +176,7 @@ I love the transparency. I can catch up with what's going on at anytime.
 
 --- 
 
-![timirah-image](../../images/TimirahJ.jpg)
+![timirah-image](../../images/wioss/TimirahJ.jpg)
 
 ## Timirah James
 
@@ -207,7 +207,7 @@ I love how innovative and supportive the Open Source community is! I think the O
 
 ---
 
-![aastha-image](../../images/Aastha.jpg)
+![aastha-image](../../images/wioss/Aastha.jpg)
 
 
 ## Aastha Gupta
@@ -242,7 +242,7 @@ I love that Open Source community is open to all and you can be a part of it whe
 --- 
 
 
-![vm-image](../../images/VM.jpg)
+![vm-image](../../images/wioss/VM.jpg)
 
 
 ## VM (Vicky) Brasseur
@@ -282,7 +282,7 @@ Yeah, FOSS has its problems and there's always room for improvement, but the peo
 
 ---
 
-![Radhika-image](../../images/Radhika.jpg)
+![Radhika-image](../../images/wioss/Radhika.jpg)
 
 ## Radhika Puthiyetath
 
@@ -316,7 +316,7 @@ Open, kind, and supportive. You will find ample opportunities to learn and expan
 ---
 
 
-![Anubha-image](../../images/Anubha.jpg)
+![Anubha-image](../../images/wioss/Anubha.jpg)
 
 
 ## Anubha Kushwaha
@@ -350,7 +350,7 @@ Open to all, no restrictions be it qualifications, age or gender
 
 --- 
 
-![FloorD-image](../../images/FloorD.jpg)
+![FloorD-image](../../images/wioss/FloorD.jpg)
 
 
 ## Floor Drees

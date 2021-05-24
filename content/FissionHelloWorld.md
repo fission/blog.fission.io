@@ -9,7 +9,7 @@ type = "post"
 
 # First, What is Serverless?
 
-In the last blog post [Kubernetes for Newbies](https://blog.fission.io/posts/kubernetes_hello-world/), we went over how to get an application up and running on Kubernetes. Though Kubernetes is surely a hot topic in tech, the “serverless” space has become just as (if not even more) trendy. Why is serverless so popular in the dev community? 
+In the last blog post [Kubernetes for Newbies](/kubernetes_hello-world/), we went over how to get an application up and running on Kubernetes. Though Kubernetes is surely a hot topic in tech, the “serverless” space has become just as (if not even more) trendy. Why is serverless so popular in the dev community? 
 
 Turns out, serverless is a developer’s saving grace when it comes to managing servers. Instead of managing a bunch of servers, Serverless solutions allow developers to … well … not manage servers at all! Serverless completely takes away the burden of managing servers. One could say that Serverless separates the “ops” from devs. Functions as a Service (FaaS) enable developers to deploy parts of an application on an "as needed" basis using short-lived functions in just about any programming language. 
 
@@ -25,7 +25,7 @@ Let’s do a quick walk through of how to deploy "Hello World" using Fission Fun
 # Installations
 
 
-We'll be using Minikube to run Kubernetes locally (just as we did in the [previous blog post](https://blog.fission.io/posts/kubernetes_hello-world/)).
+We'll be using Minikube to run Kubernetes locally (just as we did in the [previous blog post](/kubernetes_hello-world/)).
 
 
 ### Install Minikube
