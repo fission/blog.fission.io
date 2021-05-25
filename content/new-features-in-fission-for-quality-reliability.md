@@ -145,7 +145,7 @@ cost of pooling over a large number of functions, while providing
 performance benefits for all of them.
 
 [See the docs for more about controlling Function execution in
-Fission](https://docs.fission.io/latest/concepts/executor)
+Fission](https://docs.fission.io/docs/concepts/components/core/executor/)
 
 
 ## Enterprises love Fission

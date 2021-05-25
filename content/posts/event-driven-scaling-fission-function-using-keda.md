@@ -19,7 +19,7 @@ When we decided to build out these features we came across [KEDA project](https:
 
 # Architecture
 
-Let’s first understand how the whole thing works. We won’t explain Keda in detail but you can take a look at Keda documentation for details.
+Let’s first understand how the whole thing works. We won’t explain Keda in detail but you can take a look at [Keda documentation](https://keda.sh/docs/2.2/) for details.
 
 
 ![architecture](../../../images/event-driven-scaling-fission-function-using-keda/architecture.png)
@@ -80,12 +80,12 @@ cat << EOF | kubectl create -n my-kafka-project -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-name: request-topic
-labels:
+  name: request-topic
+  labels:
     strimzi.io/cluster: "my-cluster"
 spec:
-partitions: 3
-replicas: 2
+  partitions: 3
+  replicas: 2
 EOF
 ```
 2. Kafka topic for function response
@@ -94,12 +94,12 @@ cat << EOF | kubectl create -n my-kafka-project -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-name: response-topic
-labels:
+  name: response-topic
+  labels:
     strimzi.io/cluster: "my-cluster"
 spec:
-partitions: 3
-replicas: 2
+  partitions: 3
+  replicas: 2
 EOF
 ```
 3. Kafka topic for error response
@@ -108,12 +108,12 @@ cat << EOF | kubectl create -n my-kafka-project -f -
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaTopic
 metadata:
-name: error-topic
-labels:
+  name: error-topic
+  labels:
     strimzi.io/cluster: "my-cluster"
 spec:
-partitions: 3
-replicas: 2
+  partitions: 3
+  replicas: 2
 EOF
 ```
 
@@ -179,7 +179,7 @@ require (
 Let’s create the environment and function
 ```
 $ fission environment create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
-$ fission fn create --name producer --env go --src producer.go --src go.mod --entrypoint Handler
+$ fission fn create --name producer --env go --src producer.go --src go.mod --entrypoint Handler 
 ```
 
 ### Creating Consumer Function
@@ -201,12 +201,12 @@ Let’s create the environment and function
 
 ```
 $ fission env create --name nodeenv --image fission/node-env
-$ fission fn create --name consumer --env nodeenv --code consumer.js
+$ fission fn create --name consumer --env nodeenv --code consumer.js 
 ```
 
 ## Creating Message Queue Trigger
 ```
-$ fission mqt create --name kafkatest --function consumer --mqtype kafka --mqtkind keda --topic request-topic --resptopic response-topic --errortopic error-topic --maxretries 3 --metadata bootstrapServers=my-cluster-kafka-brokers.my-kafka-project.svc:9092 --metadata consumerGroup=my-group --metadata topic=request-topic  --cooldownperiod=30 --pollinginterval=5`
+$ fission mqt create --name kafkatest --function consumer --mqtype kafka --mqtkind keda --topic request-topic --resptopic response-topic --errortopic error-topic --maxretries 3 --metadata bootstrapServers=my-cluster-kafka-brokers.my-kafka-project.svc:9092 --metadata consumerGroup=my-group --metadata topic=request-topic  --cooldownperiod=30 --pollinginterval=5 
 ```
 To take leverage advantage of KEDA scaling, one must set `--mqtkind keda`. 
 Following is the description of parameter used in creating the message queue trigger:
