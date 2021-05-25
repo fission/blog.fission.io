@@ -40,8 +40,8 @@ After seeing these advantages for adopting Fission as serverless framework, you 
 
 You can install kubernetes and fission by following install guides.
 
-* [Kubernetes installation guide](https://docs.fission.io/latest/installation/kubernetessetup/)
-* [Fission installation guide](https://docs.fission.io/latest/installation/installation/)
+* [Kubernetes installation guide](https://docs.fission.io/docs/installation/#kubernetes-cluster)
+* [Fission installation guide](https://docs.fission.io/docs/installation/#install-fission)
 
 # Basic Fission Concepts
 

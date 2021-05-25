@@ -108,7 +108,7 @@ These dashboards are a set of individual panels each showing visuals of some que
 Metrics over this logs can be seen in real time. The dashboards are also easily shareable.
 
 Multiple panel with queries over Fission can be put together to get overall view of Fission components as well the Functions running within.
-An exported JSON of one such dashboard can be found [here](../../static/misc/loki-grafana-dashboard.json). This dashboard shows log metrics from all the major components of Fission.
+An exported JSON of one such dashboard can be found [here](/misc/loki-grafana-dashboard.json). This dashboard shows log metrics from all the major components of Fission.
 
 Once imported, the dashboard will look similar to below image.
 
