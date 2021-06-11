@@ -1,0 +1,190 @@
++++
+title = "Fission WebSocket Sample"
+date = "2021-06-11T10:50:51+05:30"
+author = "Gaurav Gahlot"
+description = "Write a serverless broadcast function with NodeJS"
+categories = ["Fission", "Serverless", "Application"]
+type = "post"
++++
+
+## Introduction
+
+In this post we will be into how we can develop a simple chat application using Fission functions.
+Fission's NodeJS environment now has built in support for [WebSocket][1].
+So, we are going to use this environment to power our simple web based chat application.
+
+Let's first understand how this is going to work.
+
+![architecture](../../../images/fission-websocket-sample.png)
+
+- We start by creating a NodeJS environment using the [fission/nodejs-env][2] Docker image.
+- Then we create a fission function for with [broadcast.js][3].
+It is this piece of code that will broadcast a message to all connected clients.
+- Next, we will create an [HTTP trigger][4] for the above created function.
+- We then update our chat application to connect over the route, we just created.
+- Start the HTTP server to serve the chat application and open two instances of the application in separate browser windows.
+- As you send a message from one chat window, the function will be triggered and the message will be broadcasted to all connected clients. 
+
+We will cover two approaches using which you can test this setup.
+
+## Prerequisites
+
+You will need a Kubernetes cluster with Fission installed.
+Please follow the [instructions here][5] for installing Fission in your Kubernetes cluster.
+Then, verify that the fission cli is working by using the `fission --version` command.
+
+## Try it out
+
+In order to try it out, you can either use fission specs provided with the example or manually generate the specs.
+We will cover both the approaches in this blog.
+
+### Use existing specs
+
+- Clone the [fission/examples][6] repository and navigate to websocket sample code.
+
+```
+git clone https://github.com/fission/examples.git
+cd examples/samples/websocket
+```
+
+- There you must have the `specs` directory. 
+We are going to use these specs and deploy our function.
+
+```
+fission spec apply
+
+DeployUID: 1df9464b-5f73-4623-8187-a2f431d5c828
+Resources:
+ * 1 Functions
+ * 1 Environments
+ * 1 Packages
+ * 1 Http Triggers
+ * 0 MessageQueue Triggers
+ * 0 Time Triggers
+ * 0 Kube Watchers
+ * 1 ArchiveUploadSpec
+Validation Successful
+1 environment created: nodejs
+1 package created: broadcast-pkg
+1 function created: broadcast
+1 HTTPTrigger created: broadcast
+```
+
+Now that we have deployed the function, let's [test our chat application](#chat-application).
+
+### Manually generate specs
+
+- Create a directory as `websocket`.
+
+```
+mkdir websocket && cd websocket
+```
+
+- Get websocket sample code (`broadcast.js` and `index.html`).
+
+```
+wget https://raw.githubusercontent.com/fission/examples/master/samples/websocket/broadcast.js
+wget https://raw.githubusercontent.com/fission/examples/master/samples/websocket/index.html
+```
+
+- Create an initial declarative application specification.
+The command will generate a `specs` directory and a fission deployment config spec file.
+
+```
+fission spec init
+```
+
+- Create fission [environment][7] for the function.
+
+```
+fission env create \
+ --name=nodejs \
+ --image=fission/node-env:latest \
+ --spec
+```
+
+- Create spec for the broadcast [function][8].
+
+```
+fission fn create \
+ --name=broadcast \
+ --env=nodejs \
+ --rpp=5 \
+ --deploy=broadcast.js \
+ --spec
+```
+
+- Create spec for [HTTP trigger][4].
+
+```
+fission httptrigger create \
+ --name=broadcast \
+ --url=/broadcast \
+ --function=broadcast \
+ --spec
+```
+
+- Now, we can validate and apply the generated declarative application specifications.
+
+```
+fission spec validate
+fission spec apply
+```
+
+### Chat application
+
+- The fission router is exposed as a service.
+If you are running a kind cluster, you must get the node internal IP and router service port.
+
+```
+kubectl get nodes -o wide
+kubectl get svc -n fission -l application=fission-router
+```
+
+- Edit the `index.html` and update the connection URL at line `32`.
+
+```
+...
+conn = new WebSocket("ws://<node-internal-ip>:<router-svc-node-port>/broadcast");
+...
+```
+
+- Run the HTTP server that will serve the chat application.
+
+```
+python3 -m http.server 8080
+```
+
+- Open multiple browser windows and go to `http://localhost:8080` to access the application.
+- Send message from either of the window, it will be broadcasted to all others.
+
+
+Congratulations!
+You just deployed your serverless chat application.
+If you run into any issues, please feel free to reach out at Fission [slack][13].
+
+
+**Follow us on Twitter for more updates! [@Fissionio][9]**
+
+--- 
+
+
+**_Author:_**
+
+* [Gaurav Gahlot][10]  **|**  [Fission Contributor][11]  **|**  Software Engineer - [InfraCloud Technologies][12]
+
+
+[1]: https://www.npmjs.com/package/websocket
+[2]: https://hub.docker.com/r/fission/node-env/tags?page=1&ordering=last_updated
+[3]: https://github.com/fission/examples/blob/master/samples/websocket/broadcast.js
+[4]: https://docs.fission.io/docs/triggers/http-trigger/
+[5]: https://docs.fission.io/installation/
+[6]: https://github.com/fission/examples
+[7]: https://docs.fission.io/docs/languages/
+[8]: https://docs.fission.io/docs/concepts/#functions
+[9]: https://www.twitter.com/fissionio
+[10]: https://twitter.com/_gauravgahlot
+[11]: https://github.com/gauravgahlot
+[12]: http://infracloud.io/
+[13]: https://join.slack.com/t/fissionio/shared_invite/enQtOTI3NjgyMjE5NzE3LTllODJiODBmYTBiYWUwMWQxZWRhNDhiZDMyN2EyNjAzMTFiYjE2Nzc1NzE0MTU4ZTg2MzVjMDQ1NWY3MGJhZmE
+
