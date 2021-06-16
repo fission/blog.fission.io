@@ -9,7 +9,7 @@ type = "post"
 
 ## Introduction
 
-In this post we will be into how we can develop a simple chat application using Fission functions.
+In this post we will look into how we can develop a simple chat application using Fission functions.
 Fission's NodeJS environment now has built in support for [WebSocket][1].
 So, we are going to use this environment to power our simple web based chat application.
 
@@ -38,6 +38,25 @@ Then, verify that the fission cli is working by using the `fission --version` co
 In order to try it out, you can either use fission specs provided with the example or manually generate the specs.
 We will cover both the approaches in this blog.
 
+
+### Get router details
+
+- The fission router is exposed as a service.
+If you are running a kind cluster, you must get the node internal IP and router service node port.
+
+```
+kubectl get nodes -o wide
+kubectl get svc -n fission -l application=fission-router
+```
+
+- Edit the `web/app.html` and update the connection URL at line `32`.
+
+```
+...
+conn = new WebSocket("ws://<node-internal-ip>:<router-svc-node-port>/broadcast");
+...
+```
+
 ### Use existing specs
 
 - Clone the [fission/examples][6] repository and navigate to websocket sample code.
@@ -55,46 +74,50 @@ fission spec apply
 
 DeployUID: 1df9464b-5f73-4623-8187-a2f431d5c828
 Resources:
- * 1 Functions
- * 1 Environments
- * 1 Packages
- * 1 Http Triggers
+ * 2 Functions
+ * 2 Environments
+ * 2 Packages
+ * 2 Http Triggers
  * 0 MessageQueue Triggers
  * 0 Time Triggers
  * 0 Kube Watchers
- * 1 ArchiveUploadSpec
+ * 2 ArchiveUploadSpec
 Validation Successful
-1 environment created: nodejs
-1 package created: broadcast-pkg
-1 function created: broadcast
-1 HTTPTrigger created: broadcast
+Spec doesn't belong to Git Tree.
+2 environments created: nodejs, python
+2 packages created: broadcast-pkg, web-pkg
+2 functions created: broadcast, web
+2 HTTPTriggers created: broadcast, web
 ```
 
-Now that we have deployed the function, let's [test our chat application](#chat-application).
+Now that we have deployed the function, let's test our chat application.
+Open multiple browser windows and go to `http://<router-ip:router-svc-port>/chat/app.html` to access the application.
+Send message from either of the window, it will be broadcasted to all others.
 
 ### Manually generate specs
 
-- Create a directory as `websocket`.
+- Clone the [fission/examples][6] repository and navigate to websocket sample code.
 
 ```
-mkdir websocket && cd websocket
+git clone https://github.com/fission/examples.git
+cd examples/samples/websocket
 ```
 
-- Get websocket sample code (`broadcast.js` and `index.html`).
-
+- Remove the existing specs directory
 ```
-wget https://raw.githubusercontent.com/fission/examples/master/samples/websocket/broadcast.js
-wget https://raw.githubusercontent.com/fission/examples/master/samples/websocket/index.html
+rmdir specs
 ```
 
 - Create an initial declarative application specification.
-The command will generate a `specs` directory and a fission deployment config spec file.
+The command will recreate a `specs` directory and a fission deployment config spec file.
 
 ```
 fission spec init
 ```
 
-- Create fission [environment][7] for the function.
+### Spec for broadcast function
+
+- Create fission [environment][7] for the broadcast function.
 
 ```
 fission env create \
@@ -124,6 +147,48 @@ fission httptrigger create \
  --spec
 ```
 
+### Spec for web function
+
+- Create fission [environment][7] for the web function.
+
+```
+fission env create \
+ --name=python \
+ --image=fission/python-env:latest \
+ --spec
+```
+
+- Create fission [package][14] for the web function.
+
+```
+fission package create \
+ --name=web-pkg \
+ --env=python \
+ --deploy="web/*" 
+ --spec
+```
+
+- Create spec for the web [function][8].
+
+```
+fission fn create \
+ --name=web \
+ --env=python \
+ --pkg=web-pkg \
+ --entrypoint=app.main \
+ --spec
+```
+
+- Create spec for [HTTP trigger][4].
+
+```
+fission httptrigger create \
+ --name=web \
+ --url='/chat/{html:[a-zA-Z0-9\.\/]+}' \
+ --function=web \
+ --spec
+```
+
 - Now, we can validate and apply the generated declarative application specifications.
 
 ```
@@ -131,33 +196,8 @@ fission spec validate
 fission spec apply
 ```
 
-### Chat application
-
-- The fission router is exposed as a service.
-If you are running a kind cluster, you must get the node internal IP and router service port.
-
-```
-kubectl get nodes -o wide
-kubectl get svc -n fission -l application=fission-router
-```
-
-- Edit the `index.html` and update the connection URL at line `32`.
-
-```
-...
-conn = new WebSocket("ws://<node-internal-ip>:<router-svc-node-port>/broadcast");
-...
-```
-
-- Run the HTTP server that will serve the chat application.
-
-```
-python3 -m http.server 8080
-```
-
-- Open multiple browser windows and go to `http://localhost:8080` to access the application.
-- Send message from either of the window, it will be broadcasted to all others.
-
+In order to test the application, open multiple browser windows and go to `http://<router-ip:router-svc-port>/chat/app.html` to access the application.
+Send message from either of the window, it will be broadcasted to all others.
 
 Congratulations!
 You just deployed your serverless chat application.
@@ -174,7 +214,7 @@ If you run into any issues, please feel free to reach out at Fission [slack][13]
 * [Gaurav Gahlot][10]  **|**  [Fission Contributor][11]  **|**  Software Engineer - [InfraCloud Technologies][12]
 
 
-[1]: https://www.npmjs.com/package/websocket
+[1]: https://datatracker.ietf.org/doc/html/rfc6455
 [2]: https://hub.docker.com/r/fission/node-env/tags?page=1&ordering=last_updated
 [3]: https://github.com/fission/examples/blob/master/samples/websocket/broadcast.js
 [4]: https://docs.fission.io/docs/triggers/http-trigger/
@@ -188,3 +228,4 @@ If you run into any issues, please feel free to reach out at Fission [slack][13]
 [12]: http://infracloud.io/
 [13]: https://join.slack.com/t/fissionio/shared_invite/enQtOTI3NjgyMjE5NzE3LTllODJiODBmYTBiYWUwMWQxZWRhNDhiZDMyN2EyNjAzMTFiYjE2Nzc1NzE0MTU4ZTg2MzVjMDQ1NWY3MGJhZmE
 
+[14]: https://docs.fission.io/docs/concepts/#packages
