@@ -76,9 +76,7 @@ logo = "/images/logo_small.png"
 author = "Fission"
 description = "Fission: An open source, Kubernetes-native Serverless Framework"
 # google tag manager
-google_tag_manager = "" # your id
-# google analitycs ID
-google_analitycs_id = "" # your id
+google_tag_manager = "GTM-NX83GPK" # your id
 # contact form action
 # copyright
 copyright = "&copy; 2020 Fission Developers All Rights Reserved"
@@ -92,11 +90,16 @@ preloader = "" # use png, jpg, svg or gif format
 [params.search]
 enable = true
 
+# cookies
+[params.cookies]
+enable = true
+expire_days = 2
+
 ####################### banner #######################################
 [params.banner]
-#bgImage = "/images/fission-chart2.png"
-#image = "images/fission-chart2.png"
-title = "Fission: An open source, Kubernetes-native Serverless Framework"
+#bgImage = "/images/fission-illustration.svg"
+image = "/images/fission-illustration.svg"
+title = "Fission: Kubernetes-native Serverless Framework"
 
 ######################## call to action ###############################
 [params.cta]
