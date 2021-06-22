@@ -97,9 +97,9 @@ expire_days = 2
 
 ####################### banner #######################################
 [params.banner]
-#bgImage = "/images/fission-illustration.svg"
+bgImage = "/images/Bg-image.svg"
 image = "/images/fission-illustration.svg"
-title = "Fission: Kubernetes-native Serverless Framework"
+title = "Kubernetes-native Serverless Framework"
 
 ######################## call to action ###############################
 [params.cta]
