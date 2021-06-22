@@ -21,9 +21,7 @@ When we decided to build out these features we came across [KEDA project](https:
 
 Let’s first understand how the whole thing works. We won’t explain Keda in detail but you can take a look at [Keda documentation](https://keda.sh/docs/2.2/) for details.
 
-
-![architecture](../../../images/event-driven-scaling-fission-function-using-keda/architecture.png)
-
+![architecture](/images/event-driven-scaling-fission-function-using-keda/architecture.png)
 
 1. The user creates a trigger - for Keda based integration you have to specify the “mqtkind=keda” and add all relevant parameters. These parameters are different for each message queue and hence are encapsulated in a metadata field and follow a key-value format. As soon as you create the  MQ Trigger, Fission creates a ScaledObject and a consumer deployment object which is referenced by ScaledObject. The ScaledObject is a Keda’s way of encapsulating the consumer deployment and all relevant information for connecting to an event source! Keda goes ahead and creates a HPA for the deployment and scales down the deployment to zero.
 2. As the message arrives in the event source - the Keda will scale the HPA and deployment from 0 - to 1 for consuming messages. As more messages arrive the deployment is scaled beyond 1 automatically too.
@@ -243,11 +241,11 @@ Viola! Now you can see eventually three new pods are being created in the first 
 
 You would probably have an output like this in the first terminal
 
-![consumer pods](../../../images/event-driven-scaling-fission-function-using-keda/pods_watch.png)
+![consumer pods](/images/event-driven-scaling-fission-function-using-keda/pods_watch.png)
 
 And output like this in the second terminal
 
-![response messages](../../../images/event-driven-scaling-fission-function-using-keda/response.png)
+![response messages](/images/event-driven-scaling-fission-function-using-keda/response.png)
 
 # What next?
 
@@ -257,9 +255,7 @@ Here is the guide to [Contributing to Fission](https://docs.fission.io/docs/cont
 
 Fission issue link: https://github.com/fission/fission/issues/1663
 
-
-![scalers](../../../images/event-driven-scaling-fission-function-using-keda/scalers.png)
-
+![scalers](/images/event-driven-scaling-fission-function-using-keda/scalers.png)
 
 --- 
 
