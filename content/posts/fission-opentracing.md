@@ -97,21 +97,21 @@ hello, world!
 
 You will notice that the Fission services are now visible in Jaeger UI. 
 
-![Fission Services](../../images/opentracing/1_components.png)
+![Fission Services](/images/opentracing/1_components.png)
 
 Let’s choose the Fission router service and __hellojs__ operation which corresponds to our recent invocation and search for traces.
 
 
-![](../../images/opentracing/2_function.png)
+![](/images/opentracing/2_function.png)
 
 We can see the function’s recent invocations and the traces.
 
-![](../../images/opentracing/3_trace.png)
+![](/images/opentracing/3_trace.png)
 
 We can further drill down into the traces and spans for individual components and execution paths as shown in the following screenshot:
 
 
-![](../../images/opentracing/4_tracedetail.png)
+![](/images/opentracing/4_tracedetail.png)
 
 ### Controlling the Sampling rate
 

@@ -22,7 +22,7 @@ fast, but also about moving fast _safely_, and at scale.  That means
 we need features focussed on code quality, testing, better deployment
 and release practices.
 
-Fission is the first open source serverless framwork to offer
+Fission is the first open source serverless framework to offer
 live-reload, record-replay, and automated canary deployments.  We're
 making serverless functions on Kubernetes more mature, and ready for
 production use.
@@ -109,7 +109,7 @@ invocation rate, function duration, and error rate.  These metrics can
 also be used to set up alerts with Prometheus' AlertManager service.
 
 Prometheus has a powerful query language that you can use to produce
-graphs.  Additionally, Prometheus metrics can also feed Grafana to
+graphs. Additionally, Prometheus metrics can also feed Grafana to
 create dashboards.
 
 ![Prometheus screenshot](/images/prometheus-screenshot-generic.png)
@@ -124,7 +124,7 @@ AWS or preemptible instances on GCP).
 And if you're in a company with investments in datacenters, you can
 continue taking advantage of those datacenters.  Fission scales
 resource usage up and down with demand, allowing you to maximize
-infrastrcuture utilization (in both public cloud and on-premises
+infrastructure utilization (in both public cloud and on-premises
 datacenter cases).
 
 Fission functions can be configured with specific CPU and memory

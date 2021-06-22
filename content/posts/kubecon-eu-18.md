@@ -8,7 +8,7 @@ type = "post"
 +++
 
 
-Earlier this month, Software Engineer Erwin van Eyk and Developer Advocate Timirah James gave an awesome talk on function composition at KubeCon EU in Copenhagen, Denmark. The talk covered 5 serverless function compostion styles and the significance of function composition when deploying serverless functions. 
+Earlier this month, Software Engineer Erwin van Eyk and Developer Advocate Timirah James gave an awesome talk on function composition at KubeCon EU in Copenhagen, Denmark. The talk covered 5 serverless function composition styles and the significance of function composition when deploying serverless functions. 
 
 You can view and download the slides [here](https://schd.ws/hosted_files/kccnceu18/7a/Function%20Composition%20in%20a%20Serverless%20World%20-%20Talk%20copy.pdf), or you can check out the video below.
 
@@ -41,7 +41,7 @@ Here’s our example use case:
 
 We have an application that sends a photo to a third-party image recognition API and it's going to grab the first generated tag and convert that text from English to Danish.
 
-![cat-image](../../images/example-cat.jpg)
+![cat-image](/images/example-cat.jpg)
 
 The photo above implies that these are two separate functions. But can we combine both functions into one service? The answer is simple... of course we can! 
 
@@ -56,7 +56,7 @@ In the next section, we’ll be going over how we can do just that using differe
 
 Probably the easiest way to combine functions is to just do it on a source code level. But when you do this using a FaaS framework, that FaaS framework won’t recognize those functions as separate tasks. Instead, they will be viewed as one big function. I'm going to point out why that might be a problem in a bit.
 
-![manual-image](../../images/manual-image.jpg)
+![manual-image](/images/manual-image.jpg)
 
 On the right, we have some pseudo code where we have our two functions (**Function A + Function B**). Then at the very bottom, we have a function which calls both Function A and Function B at once.
 
@@ -85,7 +85,7 @@ Even though we've merged these functions together, they are still two individual
 This composition style is pretty common. Chaining is where the user combines their functions in the form of… well... a chain. The functions are nested within each other, but each task is a separate FaaS function, and each function is fully aware of the next. 
 
 
-![direct-image](../../images/direct-chaining.jpg)
+![direct-image](/images/direct-chaining.jpg)
 
 
 Here we have our code, and as you can see they're separate and there's an HTTP call being made from our first function (Function A) to the next function. Function is making that HTTP request to Function B. Function A waits for the response from Function B before it ends and sends it’s response back to the client. 
@@ -115,7 +115,7 @@ If each function is dependent upon the prior and following function, imagine hav
 Coordinating functions is where you create an additional function that essentially acts as a director or a _“coordinator”_, which has an omniscient role of knowing and executing the full sequence of functions. It manages the full execution flow. This is similar to direct functions except here, the functions are completely unaware of each other.
 
 
-![coord-image](../../images/coord-image.jpg)
+![coord-image](/images/coord-image.jpg)
 
 
 Now we have an additional coordinator function. A request is made to Function A,  and once that response comes back, our coordinator function makes another request to Function B. Once the coordinator function receives a response from Function B, it will then send a response back to the client.
@@ -139,13 +139,13 @@ _Now the next two approaches will be a little different from the ones we've gone
 
 The event-driven approach is a very common and well understood architecture.
 
-With the event-driven composition style, the idea is here is that you have these functions that are triggered by events, which are embedded in message queues (via brokers like Kafka[link], NATS[link], etc.). Each function is tied to a request queue and a response queue. When triggered, a function executes. Once the function ends, it emits an event, which can trigger another function. 
+With the event-driven composition style, the idea is here is that you have these functions that are triggered by events, which are embedded in message queues (via brokers like Kafka, NATS, etc.). Each function is tied to a request queue and a response queue. When triggered, a function executes. Once the function ends, it emits an event, which can trigger another function. 
 
 With all the other composition styles, we specify the order of our composition explicitly -- stating the control flow. Here, we’ve switched our focus from computation to data. So in this case, we basically make this function dependent on data, and by coincidence, these functions will emit the data that the next one needs.
 
 In our example we now have this new component, the message queue, and we set up the functions prior to this to be triggered for specific events. 
 
-![event-image](../../images/event-driven.jpg)
+![event-image](/images/event-driven.jpg)
 
 
 So what's happening here? The client emits an event, which _coincidentally_ happens to be the event needed to trigger Function A, and once it completes, another event is emitted and triggers another function on the message queue.
@@ -153,34 +153,30 @@ So what's happening here? The client emits an event, which _coincidentally_ happ
 
 So Function A is triggered, it runs and completes, and is published again on the message queue. This event triggers Function B only because it is **triggered on that specific function**. 
 
-
-
 ### Pros
 
-The biggest benefit here is that you really get all the luxuries of message queues. Message queues are very reliable and they save you from having to implement all the retrying logic and the communication logic that's associated with delivering mssages from A to B.
+The biggest benefit here is that you really get all the luxuries of message queues. Message queues are very reliable and they save you from having to implement all the retrying logic and the communication logic that's associated with delivering messages from A to B.
 
 Another good thing is that all the functions are decoupled. They don't need to have any knowledge of each other whatsoever in order to run.
 
 
 ### Cons 
 
-Notice I kept emphasizing the word _"coincidentally"_ here? That's because with this approach, it can literally become a web of implicit dependancies. 
+Notice I kept emphasizing the word _"coincidentally"_ here? That's because with this approach, it can literally become a web of implicit dependencies. 
 
-Imagine a system in production where you have tens, or hundreds, or even thousands of functions all having these implicit compositions in between them. The structure of these implicit compositions can become difficult to understand, and even dangerous to add or remove functions because they might be used by some another function somewhere else in the system. This can also make it super diffcult for function versioning as well.
-
-
+Imagine a system in production where you have tens, or hundreds, or even thousands of functions all having these implicit compositions in between them. The structure of these implicit compositions can become difficult to understand, and even dangerous to add or remove functions because they might be used by some another function somewhere else in the system. This can also make it super difficult for function versioning as well.
 
 
 # Workflows
 
 Workflows is a very common notion used in many domains such as DevOps optimization, business processing, and data pipelining.
 
-![wfs-image](../../images/other-wfs.jpg)
+![wfs-image](/images/other-wfs.jpg)
 
-Worklows is an approach which uses a new runtime framework to execute a visual flowchart of function interactions. Here, a function will only begin to execute once its dependencies are done.
+Workflows is an approach which uses a new runtime framework to execute a visual flowchart of function interactions. Here, a function will only begin to execute once its dependencies are done.
 
 
-![wf-image](../../images/workflows-image.jpg)
+![wf-image](/images/workflows-image.jpg)
 
 So now, instead of our message queue, we have a workflow engine. Also the client doesn't communicate directly to the functions, instead it submits a job to the workflow engine. The workflow engine then takes the job and combines it with the workflow definition it has (usually written in YAML) in order to figure out which function to execute and the order it needs to be executed in. So in our example it would be _first A, then B_.
 
@@ -191,8 +187,7 @@ The single most important benefit of using workflows is probably the centralizat
 
 Also the workflow engine has the ability to learn from previous invocations in order to improve performance (pre-booting functions) and prevent cold-starts.
 
-One similarity that workflows have with message queues is that you're only defning relationships and where the actual data should go. But operations such as making sure the right data goes the right place at the right time, is all handled by the workflow engine itself.
-
+One similarity that workflows have with message queues is that you're only defining relationships and where the actual data should go. But operations such as making sure the right data goes the right place at the right time, is all handled by the workflow engine itself.
 
 
 ### Cons 
@@ -205,7 +200,7 @@ The main downside to using workflows is that workflow engine add more another la
 
 ## Workflows: Diving Deeper with Fission Workflows
 
-Over the last year, we've built and maintained our open source worklow engine, **Fission Workflows**. Fission Workflows deploys on Kubernetes using Fission as it's FaaS platform.
+Over the last year, we've built and maintained our open source workflow engine, **Fission Workflows**. Fission Workflows deploys on Kubernetes using Fission as it's FaaS platform.
 
 Fission Workflows utilizes two main concepts: 
 
@@ -214,16 +209,14 @@ Fission Workflows utilizes two main concepts:
 * Controlled Base (a controller keeps track of the workflow execution state and decides with the scheduler on which functions to execute next)
 
 
-![fission-wfs-image](../../images/fission-wfs.jpg)
+![fission-wfs-image](/images/fission-wfs.jpg)
 
 
 [Check out some example use cases using Fission Workflows here!](https://github.com/fission/fission-workflows/tree/master/examples)  
 
  **OR**   
 
- [Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](/fission-workflows-pt-1/)
-
-
+[Explore and learn about the inner workings of our workflow engine, Fission Workflows here!](/posts/fission-workflows-pt-1/)
 
 
 ## So Which Approach Should YOU Use?..
@@ -239,7 +232,7 @@ The simple answer... it depends! All of these serverless function composition st
 
 **If you enjoyed this blog post, be sure to [catch our talk at Velocity next month in San Jose, CA!](https://conferences.oreilly.com/velocity/vl-ca/public/schedule/detail/66827)** :)
 
-_And don't forget to tweet us!!_ **_[@Fissionio](https://twitter.com/fissionio)_**
+_And don't forget to tweet us!!_ **_[@fissionio](https://twitter.com/fissionio)_**
 
 **[Learn more & Join the Fission Community + Slack Channel here!](https://fission.io/community/)**
 

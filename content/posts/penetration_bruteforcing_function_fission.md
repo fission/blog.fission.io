@@ -190,7 +190,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 As you can see the results are a bit more verbose this time and Gobuster's response is 403 for a bunch of resources. What we did is a sample of what gobuster can do and we only tried for a few patterns. The gouster can be used with Fission to do extensive penetration testing. The best part is a security person need not know all the things about Kubernetes or deployment and can use Fission to simply write code and execute it.
 
-**Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
+**Follow us on Twitter for more updates! [@fissionio](https://www.twitter.com/fissionio)**
 
 --- 
 **_Author:_**

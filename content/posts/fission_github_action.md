@@ -77,19 +77,19 @@ Push the code to a repository with the workflow definition. Assuming you have Gi
 
 
 
-![Workflow Error](../../images/githubaction/github_workflow_error.png)
+![Workflow Error](/images/githubaction/github_workflow_error.png)
 
 Edit the workflow and enter the values of the secrets required to execute the workflow. 
 
 You can copy the value of the certificate authority, token and Kubernetes server address from Kubeconfig for the purpose of testing but ideally you’d want to use  a dedicated service account with the appropriate access. GitHub makes these secrets available to the containers running the workflow as environment variables.
 
 
-![Workflow Secrets](../../images/githubaction/workflow_secret.png)
+![Workflow Secrets](/images/githubaction/workflow_secret.png)
 
 Once you have entered all the secret values - save and commit the change to master. This will kick off the workflow and you will see it running and can then also check the logs:
 
 
-![Workflow Secrets](../../images/githubaction/workflow_running.png)
+![Workflow Secrets](/images/githubaction/workflow_running.png)
 
 In the logs below, we can see that Fission Action applied the specs and the environment and that the function was created. You can test out the function now!
 

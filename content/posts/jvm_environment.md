@@ -142,7 +142,7 @@ $ fission fn create --name hello --deploy target/hello-world-1.0-SNAPSHOT-JAR-wi
 Now you can create a route and **test that the function works!**
 
 ```
-$ fission route create --function hello --url /hellon --method GET
+$ fission route create --function hello --url /hello --method GET
 
 $ fission function test --name hello 
 
@@ -157,7 +157,7 @@ Hello World!
 - More examples can be found in our [examples directory on GitHub](https://github.com/fission/fission/tree/master/examples/jvm/)
 
 
-**Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
+**Follow us on Twitter for more updates! [@fissionio](https://www.twitter.com/fissionio)**
 
 --- 
 

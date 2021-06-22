@@ -7,16 +7,16 @@ type = "post"
 +++
 
 
-As we all know, the presence of active women in the Open Source community is scarce. Last year, [GitHub conducted an online survey](http://www.zdnet.com/article/github-open-source-is-dominated-by-men-who-just-cant-communicate/) in which they randomly selected 5,500 developers of open source projects, and found that only 3% of that population were female (crazy right?!?). The knowledge of that fact alone can be intimidating for other women to particpate in the open source community.
+As we all know, the presence of active women in the Open Source community is scarce. Last year, [GitHub conducted an online survey](http://www.zdnet.com/article/github-open-source-is-dominated-by-men-who-just-cant-communicate/) in which they randomly selected 5,500 developers of open source projects, and found that only 3% of that population were female (crazy right?!?). The knowledge of that fact alone can be intimidating for other women to participate in the open source community.
 
-So this year for Women's History Month, the Fission team decided to host the _**#WomenInOpenSourceHighlight**_ series on social media, where we shined a light on amazing women in the Open Source field. We hope that by highlighting these women and sharing their journies, that not only will they be further amplified, but that they can encourage more women to start their journies as contributors in open source. Whether you've contributed 200 lines of code or 2 lines of code, no matter how big the project, remember that every contribution makes a difference!
+So this year for Women's History Month, the Fission team decided to host the _**#WomenInOpenSourceHighlight**_ series on social media, where we shined a light on amazing women in the Open Source field. We hope that by highlighting these women and sharing their journeys, that not only will they be further amplified, but that they can encourage more women to start their journeys as contributors in open source. Whether you've contributed 200 lines of code or 2 lines of code, no matter how big the project, remember that every contribution makes a difference!
 
 
 Check out their stories below!
 
 ---
 
-![jen-image](../../images/wioss/headshot-Jen.jpg)
+![jen-image](/images/wioss/headshot-Jen.jpg)
 
 ## Jen Looper
 
@@ -44,7 +44,7 @@ The fast-moving innovation that takes place every day.
 
 --- 
 
-![rosy-image](../../images/wioss/Rosy-G.jpg)
+![rosy-image](/images/wioss/Rosy-G.jpg)
 
 ## Rosy Gupta
 
@@ -76,7 +76,7 @@ Everyone supports each other, especially to the new-comers.
 
 ---
 
-![mary-image](../../images/wioss/Mary-T.jpg)
+![mary-image](/images/wioss/Mary-T.jpg)
 
 ## Mary Thengvall
 
@@ -110,7 +110,7 @@ Their passion, the pure enjoyment they get out of sharing their work, and the wa
 
 ---
 
-![amy-image](../../images/wioss/Amy-pic.jpg)
+![amy-image](/images/wioss/Amy-pic.jpg)
 
 
 ## Amy Chen
@@ -128,7 +128,7 @@ On a practical level, its great for demonstrating your technical ability in a pu
 
 _**What tools/projects have you contributed to or created that you are most excited about? Why?**_
 
-A personal project that I'm really excited about is running at Youtube channel called Amy Codes [https://www.youtube.com/amycodes](https://www.youtube.com/amycodes). I discuss technical and non-technical aspects of being a software engineer. On the roadmap, I'll dive into details of Kubernetes and other distributed systems topics. To me, video is a great medium to share what I have to offer to the world.
+A personal project that I'm really excited about is running at YouTube channel called Amy Codes [https://www.youtube.com/amycodes](https://www.youtube.com/amycodes). I discuss technical and non-technical aspects of being a software engineer. On the roadmap, I'll dive into details of Kubernetes and other distributed systems topics. To me, video is a great medium to share what I have to offer to the world.
 
 
 _**Do you have any advice for other women who are curious about the Open Source realm, but have not yet crossed that bridge?**_
@@ -143,7 +143,7 @@ I love that open source collaborates with teams across companies and individual 
 
 --- 
 
-![shilla-image](../../images/wioss/Shilla.jpg)
+![shilla-image](/images/wioss/Shilla.jpg)
 
 ## Shilla Saebi
 
@@ -176,7 +176,7 @@ I love the transparency. I can catch up with what's going on at anytime.
 
 --- 
 
-![timirah-image](../../images/wioss/TimirahJ.jpg)
+![timirah-image](/images/wioss/TimirahJ.jpg)
 
 ## Timirah James
 
@@ -207,7 +207,7 @@ I love how innovative and supportive the Open Source community is! I think the O
 
 ---
 
-![aastha-image](../../images/wioss/Aastha.jpg)
+![aastha-image](/images/wioss/Aastha.jpg)
 
 
 ## Aastha Gupta
@@ -242,7 +242,7 @@ I love that Open Source community is open to all and you can be a part of it whe
 --- 
 
 
-![vm-image](../../images/wioss/VM.jpg)
+![vm-image](/images/wioss/VM.jpg)
 
 
 ## VM (Vicky) Brasseur
@@ -282,7 +282,7 @@ Yeah, FOSS has its problems and there's always room for improvement, but the peo
 
 ---
 
-![Radhika-image](../../images/wioss/Radhika.jpg)
+![Radhika-image](/images/wioss/Radhika.jpg)
 
 ## Radhika Puthiyetath
 
@@ -316,7 +316,7 @@ Open, kind, and supportive. You will find ample opportunities to learn and expan
 ---
 
 
-![Anubha-image](../../images/wioss/Anubha.jpg)
+![Anubha-image](/images/wioss/Anubha.jpg)
 
 
 ## Anubha Kushwaha
@@ -350,7 +350,7 @@ Open to all, no restrictions be it qualifications, age or gender
 
 --- 
 
-![FloorD-image](../../images/wioss/FloorD.jpg)
+![FloorD-image](/images/wioss/FloorD.jpg)
 
 
 ## Floor Drees

@@ -137,7 +137,7 @@ $ fission fn test --name chrome
 
 We were able to use the Puppeteer library for just a single use in this example. The real world use cases are definitely not as trivial as this one, but this blog demos what is possible. We can spin up many functions to generate screenshots or crawl web pages. If we want workflow between functions - we can use the MQs and connectors to coordinate that as well. This can be very powerful for many use cases and the functions allow us to scale on demand as needed.
 
-**Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
+**Follow us on Twitter for more updates! [@fissionio](https://www.twitter.com/fissionio)**
 
 --- 
 

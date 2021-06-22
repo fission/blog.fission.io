@@ -101,7 +101,7 @@ Events:
   Warning  FailedScheduling  7s (x5 over 6m)  default-scheduler  0/1 nodes are available: 1 node(s) didn't match node selector.
 
 ```
-you might have guessed that this is becasue we have mentioned the `nodeSelector` in the environment spec but we don't have any node in the cluster that has this label alreaedy set. If we want this pod to be running on the minikube node that we have, we will have to set the label in the minikube node, let's try to do that and then check the status 
+you might have guessed that this is because we have mentioned the `nodeSelector` in the environment spec but we don't have any node in the cluster that has this label already set. If we want this pod to be running on the minikube node that we have, we will have to set the label in the minikube node, let's try to do that and then check the status 
 ```
 # kubectl get pods -n fission-builder 
 NAME                                  READY   STATUS    RESTARTS   AGE
