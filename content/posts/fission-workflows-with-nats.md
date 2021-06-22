@@ -16,7 +16,7 @@ In light of NATS recently being [accepted into The Cloud Native Computing Founda
 Fission integrates with the NATS Streaming message queue. Users can map a queue topic to a function using a Fission Message Queue Trigger. Fission then sets up a subscription for that topic, and invokes the function once for each event. The result of the function is then pushed to another topic, also specified by the trigger. This makes it easy to wire up functions in a reliable and asynchronous manner to systems that generate events (such as Minio, for example).
 
 
-![fission_chart_1](../../images/fission-chart1.png)
+![fission_chart_1](/images/fission-chart1.png)
 
 Fission uses the durable version of NATS (NATS Streaming), which supports at-least once delivery. The Fission NATS function trigger does not acknowledge the event to the queue until the function completes successfully — this means if a function fails for any reason during processing of an event, the delivery of that event will be retried.
 
@@ -26,7 +26,7 @@ Fission uses the durable version of NATS (NATS Streaming), which supports at-lea
 Using the idea of binding functions to message queue topics, you can create very complex event-driven asynchronous application architectures. With Fission and Kubernetes handling the execution of functions, and NATS Streaming providing reliable at-least once messaging, such an architecture can be reliable and run at high performance.
 
 
-![fission_chart_2](../../images/fission-chart2.png)
+![fission_chart_2](/images/fission-chart2.png)
 
 
 This event-driven architecture has many advantages over a monolith; most importantly it separates the stateful parts of the system into the message queue and allows the more complex compute parts to be stateless.
@@ -58,7 +58,7 @@ Event Sourcing is the idea of modeling state as a series of events that change t
 The Workflow engine uses NATS Streaming to store these events. By doing so, it remains fully stateless, and in fact can be restarted at any time without any impact to ongoing workflow invocations. Event sourcing also allows the workflow engine’s internal components to be relatively decoupled from each other. And it allows the engine itself to be written in an asynchronous event-driven style, which makes it easier to optimize for performance.
 
 
-![fission_chart_3](../../images/fission-chart3.png)
+![fission_chart_3](/images/fission-chart3.png)
 
 
 ### Choosing NATS Streaming as an Event Sourcing Store

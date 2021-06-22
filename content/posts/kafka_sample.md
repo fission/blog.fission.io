@@ -24,7 +24,7 @@ This use case is inspired by the demo of [IoT platform for a shipping company bu
 
 ## Architecture
 
-![architecture-diagram](../../images/architecture-diagram.png)
+![architecture-diagram](/images/architecture-diagram.png)
 
 The above diagram represents the architecture of the IoT platform. All the Serverless functions are written in [Fission’s JVM environment](/jvm_environment/).
 
@@ -52,16 +52,15 @@ The above diagram represents the architecture of the IoT platform. All the Serve
 
 Once you setup required components ([explained here](https://github.com/fission/fission-kafka-sample/tree/master/00_setup)) and deploy the functions, you will see a dashboard like below. Based on the data present in your system, the look and feel will vary.
 
-![dashboard-diagram](../../images/iot-demo-screen.png)
+![dashboard-diagram](/images/iot-demo-screen.png)
 
 # Try it out
 
 The demo and setup instructions are at https://github.com/fission/fission-kafka-sample so you can try it out yourself!
 
-**Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
+**Follow us on Twitter for more updates! [@fissionio](https://www.twitter.com/fissionio)**
 
 --- 
-
 
 **_Author:_**
 

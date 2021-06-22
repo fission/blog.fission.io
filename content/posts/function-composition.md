@@ -27,15 +27,12 @@ However, composing your functions this way can actually turn out to cost you mor
 
 There are several different approaches to composing functions, from direct chaining, to event-driven, to workflows. Each approach comes with its own set of benefits and takeaways, which is why it’s essential to explore and decide which approach(es) make sense for your application and what you’re willing to risk. 
 
-
-
-
 ## Learn More at Velocity San Jose!
 
 To learn about more different approaches of function composition along with advantages and disadvantages for each style, be sure to catch myself and Soam Vasani’s talk session **_“Function Composition in a Serverless World”_** next week at [O’Reilly’s Velocity Conference](https://conferences.oreilly.com/velocity/vl-ca) in San Jose, on Friday, June 14th!
 
 
-**Follow us on Twitter for more updates! [@Fissionio](https://www.twitter.com/fissionio)**
+**Follow us on Twitter for more updates! [@fissionio](https://www.twitter.com/fissionio)**
 
 --- 
 

@@ -105,7 +105,7 @@ Let’s create a **Go** environment using the following command:
 
 	fission env create --name go --image fission/go-env --builder fission/go-builder
 
->**NOTE**: _Since you are creating a new environment, it may take a few extra seconds before the Go environment pods are up and running in the fission-fuction namespace._
+>**NOTE**: _Since you are creating a new environment, it may take a few extra seconds before the Go environment pods are up and running in the fission-function namespace._
 
 To verify if the pods are up and running, be sure to run this command:
 
@@ -132,7 +132,7 @@ Finally, we can invoke our function, using this command:
 
 ## What's Next?
 
-Go ahead and try your hand at using Fission Functions for your own cool projects! Remember that you can use Fission with other languages. Try it out using NodeJS, Python, Ruby, or any of the other languages within our listed [environments](https://github.com/fission/fission/tree/master/environments)! Don't forget to tell us about what you made by tweeting us [@Fissionio](http://twitter.com/fissionio), and feel free to ask questions on our Slack http://fissionio.slack.com.
+Go ahead and try your hand at using Fission Functions for your own cool projects! Remember that you can use Fission with other languages. Try it out using NodeJS, Python, Ruby, or any of the other languages within our listed [environments](https://github.com/fission/fission/tree/master/environments)! Don't forget to tell us about what you made by tweeting us [@fissionio](http://twitter.com/fissionio), and feel free to ask questions on our Slack http://fissionio.slack.com.
 
 
 

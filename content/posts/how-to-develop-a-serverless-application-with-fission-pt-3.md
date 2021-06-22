@@ -9,7 +9,7 @@ type = "post"
 
 # Introduction
 
-At [Part 2](/how-to-develop-a-serverless-application-with-fission-pt-2), we knew what's real payload was passed to function and how to create a serverless guesbook. 
+At [Part 2](/posts/how-to-develop-a-serverless-application-with-fission-pt-2), we knew what's real payload was passed to function and how to create a serverless guesbook. 
 In the last post, we will go through the final bank sample and know how to deploy a application to different fission clusters.
 
 # A Serverless Bank Application in Golang (Sample)
@@ -121,7 +121,7 @@ ba9c8cdb-ad31-4eec-9ae9-00001fdd85e6 OPTIONS      /transaction/deposit          
 In the last section of the post, assume you already created a serverless application on your own cluster. You may start 
 wondering is there any way to migrate a application from one cluster to another? 
 
-The anwser is **YES**. 
+The answer is **YES**. 
 
 Consider most of developers have different environments (e.g. Canary, Production) to test and run with. 
 Fission allows users to deploy the same application with `spec` files. A spec file is a Fission Object in YAML format includes all necessary information. 
@@ -183,7 +183,7 @@ go     d30a78ee-a618-11e8-a55e-08002720b796 fission/go-env   3        0      0  
 
 But what about archiving source code into source package? Is there any way to archive it automatically?
 
-At [Part 1](/how-to-develop-a-serverless-application-with-fission-pt-1/#add-additional-go-dependencies) we use `ZIP` command to 
+At [Part 1](/posts/how-to-develop-a-serverless-application-with-fission-pt-1/#add-additional-go-dependencies) we use `ZIP` command to 
 archive source package. You can achieve this by writing a `ArchiveUploadSpec` YAML file like following. `fission spec` 
 will automatically archives files list on `include` field once it detects `ArchiveUploadSpec` exists.   
 

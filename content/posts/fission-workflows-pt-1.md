@@ -36,10 +36,10 @@ Broadly we see a few areas where workflows are useful:
 
 - [Slack Weather Example](https://github.com/fission/fission-workflows/tree/master/examples/slackweather): Notifies users on Slack of the weather conditions of a given location. 
 
-![flowchart-1](../../images/slack-fchart.png)
+![flowchart-1](/images/slack-fchart.png)
 
 
-![slack-image](../../images/slack-msg-image.png)
+![slack-image](/images/slack-msg-image.png)
 
 
 **_[Find more cool demos/examples of apps built using Fission Workflows here](https://github.com/fission/fission-workflows/tree/master/examples)_**.
@@ -67,7 +67,7 @@ Workflows are specified in _**YAML**_.
 _Below is an example of the specifications of a workflow, from the Slack Weather application, in YAML._
 
 
-![yaml-image-1](../../images/yaml-ex-1.png)
+![yaml-image-1](/images/yaml-ex-1.png)
 
 
 
@@ -92,7 +92,7 @@ We went with something of a hybrid. Though the workflow definition is a static l
 We think this approach is the best of both worlds: we get the advantages of workflows-as-data, but with a lot more flexibility than simple static workflows.
 
 
-Stay tuned for **[Part 2](/fission-workflows-pt-2/)** of this post, as we dive deeper into the potential of Fission Workflows, what implementation looks like, and how it makes serverless application development that much easier.
+Stay tuned for **[Part 2](/posts/fission-workflows-pt-2/)** of this post, as we dive deeper into the potential of Fission Workflows, what implementation looks like, and how it makes serverless application development that much easier.
 
 _In the meantime, feel free to [**join the Fission community**](https://fission.io/community/)!_
 
