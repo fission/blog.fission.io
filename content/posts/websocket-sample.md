@@ -9,13 +9,13 @@ type = "post"
 
 ## Introduction
 
-In this post we will look into how we can develop a simple chat application using Fission functions.
-Fission's NodeJS environment now has built in support for [WebSocket][1].
+In this post we will look into how we can develop a simple a web socket based chat application using Fission functions.
+Fission's [NodeJS environment][15] now has built in support for [WebSocket][1].
 So, we are going to use this environment to power our simple web based chat application.
 
 Let's first understand how this is going to work.
 
-![architecture](../../../images/fission-websocket-sample.png)
+![architecture](/images/fission-websocket-sample.png)
 
 - We start by creating a NodeJS environment using the [fission/nodejs-env][2] Docker image.
 - Then we create a fission function for with [broadcast.js][3].
@@ -31,7 +31,8 @@ We will cover two approaches using which you can test this setup.
 
 You will need a Kubernetes cluster with Fission installed.
 Please follow the [instructions here][5] for installing Fission in your Kubernetes cluster.
-Then, verify that the fission cli is working by using the `fission --version` command.
+Then, verify that the fission cli is working by using the `fission version` command.
+Please note that the example works with fission version v1.13 and higher. 
 
 ## Try it out
 
@@ -164,7 +165,7 @@ fission env create \
 fission package create \
  --name=web-pkg \
  --env=python \
- --deploy="web/*" 
+ --deploy="web/*" \
  --spec
 ```
 
@@ -192,19 +193,24 @@ fission httptrigger create \
 - Now, we can validate and apply the generated declarative application specifications.
 
 ```
-fission spec validate
 fission spec apply
 ```
 
 In order to test the application, open multiple browser windows and go to `http://<router-ip:router-svc-port>/chat/app.html` to access the application.
 Send message from either of the window, it will be broadcasted to all others.
 
+- You can cleanup and delete all Fission resources in the application specification by executing the command:
+
+```
+fission spec destroy
+```
+
 Congratulations!
 You just deployed your serverless chat application.
 If you run into any issues, please feel free to reach out at Fission [slack][13].
 
 
-**Follow us on Twitter for more updates! [@Fissionio][9]**
+**Follow us on Twitter for more updates! [@fissionio][9]**
 
 --- 
 
@@ -227,5 +233,5 @@ If you run into any issues, please feel free to reach out at Fission [slack][13]
 [11]: https://github.com/gauravgahlot
 [12]: http://infracloud.io/
 [13]: https://join.slack.com/t/fissionio/shared_invite/enQtOTI3NjgyMjE5NzE3LTllODJiODBmYTBiYWUwMWQxZWRhNDhiZDMyN2EyNjAzMTFiYjE2Nzc1NzE0MTU4ZTg2MzVjMDQ1NWY3MGJhZmE
-
 [14]: https://docs.fission.io/docs/concepts/#packages
+[15]: https://github.com/fission/environments/tree/master/nodejs
