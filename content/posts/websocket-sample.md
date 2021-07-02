@@ -22,7 +22,7 @@ Let's first understand how this is going to work.
 It is this piece of code that will broadcast a message to all connected clients.
 - Next, we will create an [HTTP trigger][4] for the above created function.
 - We then update our chat application to connect over the route, we just created.
-- Start the HTTP server to serve the chat application and open two instances of the application in separate browser windows.
+- We will also create a function to host the this chat application.
 - As you send a message from one chat window, the function will be triggered and the message will be broadcasted to all connected clients. 
 
 We will cover two approaches using which you can test this setup.
@@ -196,9 +196,13 @@ fission httptrigger create \
 fission spec apply
 ```
 
-In order to test the application, open multiple browser windows and go to `http://<router-ip:router-svc-port>/chat/app.html` to access the application.
+- In order to test the application, open multiple browser windows and go to `http://<router-ip:router-svc-port>/chat/app.html` to access the application.
 Send message from either of the window, it will be broadcasted to all others.
 
+- One important thing to note here is that when the WebSocket is idle for a certain duration, the function pod(s) will be cleaned up.
+It means that we are not running the function pod(s) all time, but only when there are requests.
+- You can set this timeout while creating a function by setting the `--idletimeout` (in seconds) flag.
+The default value is 120.
 - You can cleanup and delete all Fission resources in the application specification by executing the command:
 
 ```
