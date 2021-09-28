@@ -31,3 +31,12 @@ HUGO_VERSION = "v0.68.1"
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
 
+[[redirects]]
+  from = "/posts/*"
+  to = "https://fission.io/posts/:splat"
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "https://fission.io/blog/"
+  force = true
