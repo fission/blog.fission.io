@@ -11,6 +11,7 @@ paginate = "8"
 summaryLength = "20"
 # disqus short name
 # disqusShortname = "" # get your shortname form here : https://disqus.com
+enableRobotsTXT = true
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
