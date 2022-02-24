@@ -32,7 +32,7 @@ HUGO_VERSION = "v0.68.1"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "/posts/*"
+  from = "/posts/"
   to = "https://fission.io/posts/"
   force = true
 
