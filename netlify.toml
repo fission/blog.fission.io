@@ -32,19 +32,24 @@ HUGO_VERSION = "v0.68.1"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-force = true
-from = "/categories/"
-to = "https://fission.io/categories/"
+  from = "/posts/*"
+  to = "https://fission.io/posts/:splat"
+  force = true
+
+[[redirects]]
+  from = "/"
+  to = "https://fission.io/blog/"
+  force = true
 
 [[redirects]]
 force = true
-from = "/tags"
+from = "/categories/*"
 to = "https://fission.io/categories/"
 status = 301
 
 [[redirects]]
 force = true
-from = "/tags/"
+from = "/tags/*"
 to = "https://fission.io/categories/"
 status = 301
 
