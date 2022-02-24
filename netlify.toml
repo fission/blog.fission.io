@@ -158,7 +158,7 @@ status = 301
 [[redirects]]
 force = true
 from = "/posts/kubecon-eu-18/"
-to = "https://fission.io/blog/categories/"
+to = "https://fission.io/blog/"
 status = 301
 
 [[redirects]]
@@ -176,7 +176,7 @@ status = 301
 [[redirects]]
 force = true
 from = "/posts/women-in-open-source-highlight/"
-to = "https://fission.io/posts/"
+to = "https://fission.io/blog/"
 status = 301
 
 [[redirects]]
