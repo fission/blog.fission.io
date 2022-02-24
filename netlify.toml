@@ -32,11 +32,167 @@ HUGO_VERSION = "v0.68.1"
 HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-  from = "/posts/*"
-  to = "https://fission.io/posts/:splat"
+  from = "/posts/"
+  to = "https://fission.io/posts/"
   force = true
 
 [[redirects]]
   from = "/"
   to = "https://fission.io/blog/"
   force = true
+
+[[redirects]]
+force = true
+from = "/categories/*"
+to = "https://fission.io/categories/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/tags/*"
+to = "https://fission.io/categories/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/author/*"
+to = "https://fission.io/author/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/websocket-sample/"
+to = "https://fission.io/blog/fission-websocket-sample/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/penetration_bruteforcing_function_fission/"
+to = "https://fission.io/blog/penetration-testing-with-gobuster-fission/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/gvisor/"
+to = "https://fission.io/blog/using-gvisor-with-fission/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/logmonitoringloki/"
+to = "https://fission.io/blog/monitoring-fission-logs-with-grafana-loki/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission_builder_podspec/"
+to = "https://fission.io/blog/monitoring-fission-logs-with-grafana-loki/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission_pod_specs/"
+to = "https://fission.io/blog/functions-on-steroids-with-podspec/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/new-features-in-fission-for-quality-reliability/"
+to = "https://fission.io/blog/new-in-fission-live-reload-canary-deployments-prometheus-integration/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/live-reload/"
+to = "https://fission.io/blog/live-reload-in-fission-instant-feedback-on-your-serverless-functions/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/prometheus/"
+to = "https://fission.io/blog/using-fissions-prometheus-metrics/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/automated-canary-deployments/"
+to = "https://fission.io/blog/automated-canary-deployments-in-fission/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/how-to-develop-a-serverless-application-with-fission-pt-3/"
+to = "https://fission.io/blog/how-to-develop-a-serverless-application-with-fission-part-3/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/how-to-develop-a-serverless-application-with-fission-pt-2/"
+to = "https://fission.io/blog/how-to-develop-a-serverless-application-with-fission-part-2/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/how-to-develop-a-serverless-application-with-fission-pt-1/"
+to = "https://fission.io/blog/how-to-develop-a-serverless-application-with-fission-part-1/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/kafka_sample/"
+to = "https://fission.io/blog/fission-kafka-sample/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/jvm_environment/"
+to = "https://fission.io/blog/writing-serverless-functions-for-jvm-with-fission.io/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/function-composition/"
+to = "https://fission.io/blog/function-composition-what-it-means-and-why-you-should-care/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/kubecon-eu-18/"
+to = "https://fission.io/blog/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission-workflows-pt-2/"
+to = "https://fission.io/blog/getting-started-composing-serverless-functions-with-fission-workflows-part-2/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission-workflows-pt-1/"
+to = "https://fission.io/blog/getting-started-composing-serverless-functions-with-fission-workflows-part-1/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/women-in-open-source-highlight/"
+to = "https://fission.io/blog/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission-workflows-with-nats/"
+to = "https://fission.io/blog/faas-function-composition-with-fission-workflows-and-nats/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/fission-hello-world/"
+to = "https://fission.io/blog/hello-world-creating-functions-using-fission-in-golang/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/posts/kubernetes_hello-world/"
+to = "https://fission.io/blog/hello-world-in-go-for-kubernetes-newbies/"
+status = 301
