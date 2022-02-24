@@ -33,7 +33,7 @@ HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
   from = "/posts/*"
-  to = "https://fission.io/posts/:splat"
+  to = "https://fission.io/posts/"
   force = true
 
 [[redirects]]
