@@ -40,3 +40,26 @@ HUGO_ENABLEGITINFO = "true"
   from = "/"
   to = "https://fission.io/blog/"
   force = true
+
+[[redirects]]
+force = true
+from = "/categories"
+to = "https://fission.io/categories/"
+
+[[redirects]]
+force = true
+from = "/categories/*"
+to = "https://fission.io/categories/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/tags/"
+to = "https://fission.io/categories/"
+status = 301
+
+[[redirects]]
+force = true
+from = "/author/*"
+to = "https://fission.io/author/"
+status = 301
